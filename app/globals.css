@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   SESA Design Tokens — Light theme (default)
+   Autor: Ing. J Sebastian Vargas S
+───────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette */
+  --sesa-accent: #0D9488;
+  --sesa-accent-hover: #0f766e;
+  --sesa-accent-muted: rgba(13, 148, 136, 0.1);
+  --sesa-accent-2: #6366F1;
+  --sesa-accent-2-muted: rgba(99, 102, 241, 0.1);
+
+  /* Surfaces */
+  --sesa-bg: #F8F9FB;
+  --sesa-surface: #FFFFFF;
+  --sesa-surface-elevated: #FFFFFF;
+  --sesa-surface-hover: rgba(0, 0, 0, 0.04);
+
+  /* Text */
+  --sesa-text-primary: #0F1117;
+  --sesa-text-secondary: #6B7280;
+  --sesa-text-muted: #9CA3AF;
+
+  /* Borders */
+  --sesa-border: rgba(0, 0, 0, 0.08);
+  --sesa-border-strong: rgba(0, 0, 0, 0.16);
+
+  /* Semantic */
+  --sesa-success: #10B981;
+  --sesa-success-muted: rgba(16, 185, 129, 0.1);
+  --sesa-warning: #F59E0B;
+  --sesa-warning-muted: rgba(245, 158, 11, 0.1);
+  --sesa-danger: #EF4444;
+  --sesa-danger-muted: rgba(239, 68, 68, 0.1);
+  --sesa-info: #3B82F6;
+  --sesa-info-muted: rgba(59, 130, 246, 0.1);
+
+  /* Shadows */
+  --sesa-shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --sesa-shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  --sesa-shadow-lg: 0 8px 32px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  --sesa-shadow-xl: 0 20px 60px rgba(0,0,0,.15), 0 8px 20px rgba(0,0,0,.08);
+
+  /* Radius */
+  --sesa-radius-sm: 6px;
+  --sesa-radius-md: 8px;
+  --sesa-radius-lg: 12px;
+  --sesa-radius-xl: 16px;
+  --sesa-radius-2xl: 24px;
+  --sesa-radius-full: 9999px;
+
+  /* Motion */
+  --sesa-motion-fast: 120ms;
+  --sesa-motion-base: 180ms;
+  --sesa-motion-slow: 260ms;
+  --sesa-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --sesa-ease-emphasis: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Typography */
+  --sesa-font-size-xs: 0.75rem;
+  --sesa-font-size-sm: 0.875rem;
+  --sesa-font-size-md: 1rem;
+  --sesa-font-size-lg: 1.125rem;
+  --sesa-font-size-xl: 1.25rem;
+  --sesa-font-size-2xl: 1.5rem;
+  --sesa-font-size-3xl: 1.875rem;
+  --sesa-font-size-4xl: 2.25rem;
+  --sesa-font-size-5xl: 3rem;
+
+  /* Inputs */
+  --sesa-input-bg: #FFFFFF;
+  --sesa-input-border: rgba(0,0,0,0.16);
+  --sesa-input-placeholder: #9CA3AF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─────────────────────────────────────────────
+   Dark theme
+───────────────────────────────────────────── */
+[data-theme='dark'] {
+  --sesa-bg: #0F1117;
+  --sesa-surface: #171B26;
+  --sesa-surface-elevated: #1E2335;
+  --sesa-surface-hover: rgba(255, 255, 255, 0.05);
+
+  --sesa-text-primary: #F1F5F9;
+  --sesa-text-secondary: #94A3B8;
+  --sesa-text-muted: #64748B;
+
+  --sesa-border: rgba(255, 255, 255, 0.08);
+  --sesa-border-strong: rgba(255, 255, 255, 0.16);
+
+  --sesa-shadow-sm: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+  --sesa-shadow-md: 0 4px 12px rgba(0,0,0,.4), 0 2px 4px rgba(0,0,0,.2);
+  --sesa-shadow-lg: 0 8px 32px rgba(0,0,0,.5), 0 4px 8px rgba(0,0,0,.3);
+  --sesa-shadow-xl: 0 20px 60px rgba(0,0,0,.6), 0 8px 20px rgba(0,0,0,.4);
+
+  --sesa-input-bg: #1E2335;
+  --sesa-input-border: rgba(255,255,255,0.12);
+  --sesa-input-placeholder: #64748B;
+
+  --sesa-accent-muted: rgba(13, 148, 136, 0.15);
+  --sesa-accent-2-muted: rgba(99, 102, 241, 0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────────
+   Base reset
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--sesa-bg);
+  color: var(--sesa-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  transition: background-color var(--sesa-motion-slow) var(--sesa-ease-standard),
+              color var(--sesa-motion-slow) var(--sesa-ease-standard);
+}
+
+/* Tabular nums for data */
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--sesa-accent) 0%, var(--sesa-accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--sesa-accent);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--sesa-border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sesa-text-muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

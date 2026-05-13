@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SESA — Landing Page
 
-## Getting Started
+Landing page institucional para **SESA** (Sistema de Gestión en Salud), plataforma SaaS B2B para el sector salud colombiano.
 
-First, run the development server:
+## Stack
+
+| Tecnología | Versión | Propósito |
+|---|---|---|
+| **Next.js** | 15 (App Router) | Framework React con SSR/SSG |
+| **TypeScript** | 5 | Tipado estático |
+| **Tailwind CSS** | v4 | Utilidades CSS |
+| **Framer Motion** | latest | Animaciones y microinteracciones |
+| **Lucide React** | latest | Iconografía |
+| **Vercel** | — | Deploy y CDN |
+
+## Secciones
+
+- **Hero** — Headline + CTA + Dashboard mockup animado
+- **Features** — 6 módulos del producto con cards interactivas
+- **Stats** — Métricas con contadores animados al hacer scroll
+- **Pricing** — 3 planes con toggle Mensual/Anual
+- **Testimonials** — Casos de clientes reales
+- **Footer** — Links, contacto, créditos legales
+
+## Desarrollo local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+El proyecto está configurado para **Vercel**. Conecta el repositorio en [vercel.com](https://vercel.com) y el CI/CD queda automático desde la rama `main`.
 
-## Learn More
+## Tema light / dark
 
-To learn more about Next.js, take a look at the following resources:
+- Toggle en la navbar.
+- Estrategia: `data-theme="light|dark"` en `<html>` (consistente con el sistema SESA).
+- Variables CSS en `app/globals.css`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Autor
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ing. J Sebastian Vargas S — Sphaira Tech SAS
