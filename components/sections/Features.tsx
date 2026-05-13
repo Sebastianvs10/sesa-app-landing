@@ -1,33 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, AlertTriangle, Wallet, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
+import { FileText, AlertTriangle, Wallet, BarChart3, ArrowRight, CheckCircle2, ClipboardList } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 
 const FEATURES_MAIN = [
   {
-    badge: "Núcleo del sistema",
+    badge: "Punto de entrada del servicio",
+    badgeVariant: "accent" as const,
+    title: "Autorización de servicios ante EPS",
+    description:
+      "Gestiona las solicitudes de autorización de procedimientos, medicamentos y hospitalizaciones ante cada EPS. Seguimiento en tiempo real del estado, alertas de respuesta y trazabilidad completa del proceso.",
+    points: [
+      "Solicitud y seguimiento de autorizaciones en línea",
+      "Alertas de vencimiento y respuestas pendientes",
+      "Gestión de negaciones con argumentario normativo",
+      "Integración directa con portales EPS autorizadores",
+    ],
+    icon: ClipboardList,
+    color: "var(--sesa-accent)",
+    mockup: <AutorizacionMockup />,
+    reverse: false,
+  },
+  {
+    badge: "Núcleo de facturación",
     badgeVariant: "accent" as const,
     title: "Facturación electrónica sin errores",
     description:
-      "Genera, valida y radica facturas electrónicas de venta cumpliendo normativa DIAN, RIPS y resoluciones vigentes. El motor de validación detecta inconsistencias antes de radicar.",
+      "Genera, valida y radica facturas electrónicas de venta cumpliendo normativa DIAN, RIPS y resoluciones vigentes. El motor de validación detecta inconsistencias antes de radicar para garantizar el pago.",
     points: [
       "Generación automática de RIPS desde el HIS",
       "Validación previa a radicación (99.1% aprobadas)",
       "FEV con firma electrónica integrada",
-      "Seguimiento de estados en tiempo real",
+      "Seguimiento de estados por servicio y por EPS",
     ],
     icon: FileText,
     color: "var(--sesa-accent)",
     mockup: <FacturacionMockup />,
-    reverse: false,
+    reverse: true,
   },
   {
     badge: "Recuperación de cartera",
     badgeVariant: "warning" as const,
     title: "Gestión de glosas que recupera",
     description:
-      "Responde glosas dentro de los términos legales con alertas automáticas y workflows guiados por normativa. Dashboard de conciliación con EPS integrado.",
+      "Centraliza, prioriza y responde glosas dentro de los términos legales con alertas automáticas y workflows guiados por normativa. Dashboard de conciliación con EPS integrado.",
     points: [
       "Alertas de vencimiento por término legal",
       "Plantillas de respuesta pre-validadas",
@@ -37,26 +54,83 @@ const FEATURES_MAIN = [
     icon: AlertTriangle,
     color: "var(--sesa-warning)",
     mockup: <GlosaMockup />,
-    reverse: true,
+    reverse: false,
   },
   {
     badge: "Inteligencia financiera",
     badgeVariant: "accent2" as const,
     title: "Cartera con priorización inteligente",
     description:
-      "Visualiza cartera por EPS, edad, estado y riesgo. El motor de priorización identifica qué cobrar primero para maximizar el recaudo mensual.",
+      "Visualiza la cartera hospitalaria por EPS, edad, estado y riesgo. El motor de priorización identifica qué gestionar primero para maximizar el recaudo sin deteriorar la relación con el asegurador.",
     points: [
-      "Segmentación por riesgo y antigüedad",
-      "Score de cobro por EPS y contrato",
+      "Segmentación por riesgo, antigüedad y EPS",
+      "Score de cobro por contrato y tipo de servicio",
       "Flujo de gestión de cobro automatizado",
-      "Reportes de cartera para junta directiva",
+      "Reportes ejecutivos para junta directiva",
     ],
     icon: Wallet,
     color: "var(--sesa-accent-2)",
     mockup: <CarteraMockup />,
-    reverse: false,
+    reverse: true,
   },
 ];
+
+function AutorizacionMockup() {
+  const items = [
+    { id: "AUT-8821", servicio: "Cirugía ambulatoria", eps: "Sura EPS", estado: "Autorizado", ok: true, dias: "Hoy" },
+    { id: "AUT-8820", servicio: "Resonancia magnética", eps: "Sanitas", estado: "Pendiente", ok: null, dias: "2 días" },
+    { id: "AUT-8819", servicio: "Hospitalización UCI", eps: "Nueva EPS", estado: "Negado", ok: false, dias: "Vencido" },
+    { id: "AUT-8818", servicio: "Quimioterapia ciclo 3", eps: "Compensar", estado: "Autorizado", ok: true, dias: "Ayer" },
+  ];
+  const colorMap: Record<string, string> = {
+    Autorizado: "var(--sesa-success)",
+    Pendiente: "var(--sesa-warning)",
+    Negado: "var(--sesa-danger)",
+  };
+  return (
+    <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
+        <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Autorizaciones activas</span>
+        <span style={{
+          fontSize: "10px", fontWeight: 700, padding: "3px 8px",
+          backgroundColor: "var(--sesa-accent-muted)", color: "var(--sesa-accent)",
+          borderRadius: "var(--sesa-radius-full)",
+          border: "1px solid var(--sesa-border-accent)",
+        }}>24 pendientes hoy</span>
+      </div>
+      {items.map((r) => (
+        <div key={r.id} style={{
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          padding: "10px 12px",
+          backgroundColor: "var(--sesa-surface)",
+          borderRadius: "var(--sesa-radius-md)",
+          border: `1px solid ${r.ok === false ? "var(--sesa-danger-muted)" : "var(--sesa-border)"}`,
+          borderLeft: `3px solid ${colorMap[r.estado]}`,
+          gap: "8px",
+        }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "2px", flex: 1 }}>
+            <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>{r.servicio}</span>
+            <span style={{ fontSize: "10px", color: "var(--sesa-text-muted)", fontFamily: "monospace" }}>{r.id} · {r.eps}</span>
+          </div>
+          <div style={{ textAlign: "right", flexShrink: 0 }}>
+            <div style={{ fontSize: "10px", fontWeight: 700, color: colorMap[r.estado], marginBottom: "2px" }}>{r.estado}</div>
+            <div style={{ fontSize: "9px", color: "var(--sesa-text-muted)" }}>{r.dias}</div>
+          </div>
+        </div>
+      ))}
+      <div style={{
+        marginTop: "4px", padding: "8px 12px",
+        backgroundColor: "var(--sesa-accent-muted)",
+        borderRadius: "var(--sesa-radius-md)",
+        border: "1px solid var(--sesa-border-accent)",
+        display: "flex", justifyContent: "space-between",
+      }}>
+        <span style={{ fontSize: "11px", color: "var(--sesa-text-secondary)" }}>Tiempo promedio de respuesta EPS</span>
+        <span style={{ fontSize: "12px", fontWeight: 800, color: "var(--sesa-accent)" }}>4.2 horas</span>
+      </div>
+    </div>
+  );
+}
 
 function FacturacionMockup() {
   return (
@@ -201,7 +275,7 @@ export function Features() {
           transition={{ duration: 0.5 }}
           style={{ textAlign: "center", marginBottom: "80px" }}
         >
-          <Badge variant="accent2" size="sm">Módulos del producto</Badge>
+          <Badge variant="accent2" size="sm">Módulos de gestión hospitalaria</Badge>
           <h2 style={{
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: 800, letterSpacing: "-0.03em",
@@ -209,11 +283,11 @@ export function Features() {
             margin: "16px 0",
             lineHeight: 1.12,
           }}>
-            Cada etapa del ciclo de ingresos,{" "}
-            <span className="gradient-text">resuelta</span>
+            Cada etapa del servicio hospitalario,{" "}
+            <span className="gradient-text">gestionada</span>
           </h2>
           <p style={{ fontSize: "1.05rem", color: "var(--sesa-text-secondary)", maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-            Desde la generación de la factura hasta el recaudo final, SESA cubre todo con automatización y trazabilidad completa.
+            Desde la autorización ante la EPS hasta el recaudo final — SESA cubre el flujo completo con trazabilidad y cumplimiento normativo en cada paso.
           </p>
         </motion.div>
 
@@ -332,9 +406,9 @@ function FeatureRow({ feature, index }: { feature: typeof FEATURES_MAIN[0]; inde
 
 function SupportingFeatures() {
   const items = [
-    { icon: BarChart3, title: "Reportes ejecutivos", desc: "Tableros KPI en tiempo real exportables a Excel/PDF para junta directiva.", color: "var(--sesa-success)", badge: "Tiempo real" },
-    { icon: FileText, title: "Multi-sede y multi-EPS", desc: "Gestiona múltiples sedes, contratos y EPS desde un único panel centralizado.", color: "var(--sesa-info)", badge: "Multi-tenant" },
-    { icon: AlertTriangle, title: "Auditoría y trazabilidad", desc: "Log completo de cada acción con usuario, fecha y estado para auditorías.", color: "var(--sesa-accent-2)", badge: "Compliance" },
+    { icon: BarChart3, title: "Indicadores hospitalarios", desc: "Tableros KPI operativos y financieros en tiempo real: ocupación, autorización, radicación, glosas y recaudo en un solo panel.", color: "var(--sesa-success)", badge: "Tiempo real" },
+    { icon: FileText, title: "Multi-sede y multi-EPS", desc: "Centraliza la gestión de servicios de múltiples sedes, especialidades y contratos con EPS desde un único panel operativo.", color: "var(--sesa-info)", badge: "Multi-tenant" },
+    { icon: AlertTriangle, title: "Auditoría médica y trazabilidad", desc: "Registro completo de cada servicio: usuario, fecha, estado, autorización y facturación — para auditorías internas y externas.", color: "var(--sesa-accent-2)", badge: "Compliance" },
   ];
 
   return (

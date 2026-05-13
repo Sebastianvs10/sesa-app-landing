@@ -6,18 +6,18 @@ import { Badge } from "@/components/ui/Badge";
 
 const TESTIMONIALS = [
   {
-    quote: "SESA redujo nuestras glosas en un 38% en los primeros tres meses. El equipo de cartera ahora puede enfocarse en recuperación, no en papelería.",
+    quote: "Con SESA centralizamos la gestión de autorizaciones de todas nuestras especialidades. El tiempo de respuesta ante EPS bajó de 3 días a menos de 4 horas. Los servicios ya no se quedan represados por trámites.",
     name: "Dr. Andrés Morales",
-    role: "Director Financiero",
+    role: "Director Médico-Administrativo",
     org: "Clínica San Rafael",
     city: "Bogotá",
     avatar: "AM",
-    result: "−38% glosas",
+    result: "−70% tiempo autorización",
     resultColor: "var(--sesa-success)",
     accentColor: "var(--sesa-accent)",
   },
   {
-    quote: "La radicación electrónica con SESA pasó de tomar 3 días a menos de 4 horas. El cumplimiento normativo de RIPS es automático y sin errores.",
+    quote: "La radicación electrónica con SESA pasó de tomar 3 días a menos de 4 horas. El módulo de RIPS automático eliminó por completo los reprocesos de nuestro equipo de facturación.",
     name: "Lic. Carolina Ospina",
     role: "Jefe de Facturación",
     org: "Hospital Regional del Caribe",
@@ -28,18 +28,18 @@ const TESTIMONIALS = [
     accentColor: "var(--sesa-accent-2)",
   },
   {
-    quote: "Multi-sede, multi-EPS y con reportes en tiempo real. Por fin una solución que entiende la complejidad del sector salud colombiano.",
-    name: "Ing. Juliana Pérez",
-    role: "Gerente de TI",
+    quote: "SESA nos dio trazabilidad de cada servicio prestado desde la autorización hasta el pago. Ahora la auditoría médica tiene información en tiempo real sin depender del área administrativa.",
+    name: "Dra. Juliana Pérez",
+    role: "Coordinadora de Auditoría Médica",
     org: "Red Hospitalaria del Eje Cafetero",
     city: "Manizales",
     avatar: "JP",
-    result: "5 sedes unificadas",
+    result: "Auditoría en tiempo real",
     resultColor: "var(--sesa-info)",
     accentColor: "var(--sesa-info)",
   },
   {
-    quote: "La visibilidad de cartera por EPS y por contrato nos cambió la forma de hacer seguimiento. El recaudo mejoró un 22% en el primer semestre.",
+    quote: "La cartera de servicios hospitalarios es muy compleja: múltiples contratos, tarifas y EPS. Con SESA tenemos visibilidad total y el recaudo mejoró un 22% en el primer semestre.",
     name: "Lic. Fernando Ríos",
     role: "Gerente Financiero",
     org: "Clínica del Country Norte",
@@ -50,7 +50,7 @@ const TESTIMONIALS = [
     accentColor: "var(--sesa-accent)",
   },
   {
-    quote: "El onboarding fue increíblemente rápido. En 48 horas ya teníamos la primera factura emitida y el equipo entrenado. Soporte excepcional.",
+    quote: "En 48 horas ya gestionábamos autorizaciones y emitíamos facturas desde SESA. La transición no interrumpió la atención de ningún paciente. Soporte excepcional durante todo el proceso.",
     name: "Dra. María Fernanda Castro",
     role: "Directora Médica",
     org: "IPS Salud Total",
@@ -61,13 +61,13 @@ const TESTIMONIALS = [
     accentColor: "var(--sesa-warning)",
   },
   {
-    quote: "La integración con nuestro HIS y la API de DIAN funcionó sin problemas. El equipo técnico de SESA es muy competente y respondió todo rápidamente.",
+    quote: "La integración con nuestro HIS fue transparente. Ahora todo el flujo — orden médica, autorización, prestación, factura — queda registrado automáticamente en SESA sin reingreso manual de datos.",
     name: "Ing. Luis Alberto García",
     role: "Líder de Tecnología",
     org: "Hospital Universitario del Valle",
     city: "Cali",
     avatar: "LG",
-    result: "Integración en 5 días",
+    result: "0 reingreso manual",
     resultColor: "var(--sesa-accent-2)",
     accentColor: "var(--sesa-accent-2)",
   },
@@ -113,7 +113,7 @@ export function Testimonials() {
             <span className="gradient-text">confían en SESA</span>
           </h2>
           <p style={{ fontSize: "15px", color: "var(--sesa-text-secondary)", maxWidth: "480px", margin: "0 auto" }}>
-            Resultados verificables de líderes del sector salud colombiano.
+            Resultados verificables de directivos médicos, financieros y de TI de instituciones hospitalarias colombianas.
           </p>
         </motion.div>
 

@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
 const TRUST_PILLS = [
-  { icon: ShieldCheck, text: "ISO 27001 ready" },
-  { icon: TrendingUp, text: "+40% menos glosas" },
+  { icon: ShieldCheck, text: "Cumplimiento normativo MINSALUD" },
+  { icon: TrendingUp, text: "Autorización de servicios en línea" },
   { icon: Clock, text: "Onboarding en 48h" },
 ];
 
@@ -73,7 +73,7 @@ export function Hero() {
               border: "1px solid var(--sesa-border-accent)",
             }}>Nuevo</span>
             <span style={{ fontSize: "12.5px", color: "var(--sesa-text-secondary)", fontWeight: 500 }}>
-              SESA v3 · Facturación IA + RIPS automático
+              SESA v3 · Autorización, facturación y cartera hospitalaria
             </span>
             <ArrowRight size={12} style={{ color: "var(--sesa-text-muted)" }} />
           </div>
@@ -88,11 +88,11 @@ export function Hero() {
           color: "var(--sesa-text-primary)",
           marginBottom: "28px",
         }}>
-          La plataforma que
+          Gestión integral de
           <br />
-          <span className="gradient-text">transforma el ciclo</span>
+          <span className="gradient-text">servicios hospitalarios</span>
           <br />
-          de ingresos en salud
+          en Colombia
         </motion.h1>
 
         {/* Subheadline */}
@@ -104,9 +104,10 @@ export function Hero() {
           margin: "0 auto 44px",
           fontWeight: 400,
         }}>
-          SESA automatiza la facturación electrónica, reduce glosas y acelera el
-          recaudo de hospitales, clínicas y redes de salud en Colombia con
-          cumplimiento normativo garantizado.
+          SESA cubre el flujo completo del servicio hospitalario: autorización
+          ante EPS, registro de servicios, facturación electrónica DIAN,
+          gestión de glosas y cartera — todo integrado, con cumplimiento
+          normativo MINSALUD garantizado.
         </motion.p>
 
         {/* CTAs */}
@@ -205,17 +206,17 @@ export function Hero() {
 
 function DashboardMockup() {
   const kpis = [
-    { label: "Radicado del mes", value: "$2.84M", trend: "+12.4%", up: true, color: "var(--sesa-accent)" },
-    { label: "Glosas recuperadas", value: "$847K", trend: "+8.1%", up: true, color: "var(--sesa-accent-2)" },
-    { label: "Días de cartera", value: "34 días", trend: "-6 días", up: true, color: "var(--sesa-success)" },
+    { label: "Servicios autorizados", value: "1,248", trend: "+9.2%", up: true, color: "var(--sesa-accent)" },
+    { label: "Radicado del mes", value: "$2.84M", trend: "+12.4%", up: true, color: "var(--sesa-accent-2)" },
+    { label: "Glosas resueltas", value: "$847K", trend: "+8.1%", up: true, color: "var(--sesa-success)" },
     { label: "Tasa de rechazo", value: "2.3%", trend: "-0.8pp", up: true, color: "var(--sesa-warning)" },
   ];
 
   const rows = [
-    { id: "F-20240512", eps: "Sura EPS", monto: "$142,000", estado: "Radicada", estadoColor: "var(--sesa-success)" },
-    { id: "F-20240511", eps: "Nueva EPS", monto: "$89,500", estado: "En revisión", estadoColor: "var(--sesa-warning)" },
-    { id: "F-20240510", eps: "Sanitas", monto: "$204,000", estado: "Pagada", estadoColor: "var(--sesa-accent)" },
-    { id: "F-20240509", eps: "Compensar", monto: "$67,800", estado: "Glosada", estadoColor: "var(--sesa-danger)" },
+    { id: "SVC-20240512", eps: "Sura EPS", monto: "$142,000", estado: "Autorizado", estadoColor: "var(--sesa-success)" },
+    { id: "SVC-20240511", eps: "Nueva EPS", monto: "$89,500", estado: "En trámite", estadoColor: "var(--sesa-warning)" },
+    { id: "FAC-20240510", eps: "Sanitas", monto: "$204,000", estado: "Radicada", estadoColor: "var(--sesa-accent)" },
+    { id: "FAC-20240509", eps: "Compensar", monto: "$67,800", estado: "Glosada", estadoColor: "var(--sesa-danger)" },
   ];
 
   return (
@@ -224,10 +225,10 @@ function DashboardMockup() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <p style={{ fontSize: "11px", color: "var(--sesa-text-muted)", marginBottom: "2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            Dashboard · Mayo 2026
+            Gestión de Servicios · Mayo 2026
           </p>
           <p style={{ fontSize: "15px", fontWeight: 700, color: "var(--sesa-text-primary)" }}>
-            Clínica San Rafael
+            Hospital Universitario Regional
           </p>
         </div>
         <Badge variant="success">Sistema activo</Badge>
@@ -258,7 +259,7 @@ function DashboardMockup() {
         overflow: "hidden",
       }}>
         <div style={{ padding: "10px 14px", borderBottom: "1px solid var(--sesa-border)", display: "flex", justifyContent: "space-between" }}>
-          <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Facturas recientes</span>
+          <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Servicios y facturas recientes</span>
           <span style={{ fontSize: "11px", color: "var(--sesa-accent)", fontWeight: 500, cursor: "pointer" }}>Ver todas →</span>
         </div>
         {rows.map((r, i) => (

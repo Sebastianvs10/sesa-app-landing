@@ -5,12 +5,12 @@ import { motion, useInView } from "framer-motion";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
 const STATS = [
-  { value: 40, suffix: "%", prefix: "−", label: "Reducción de glosas", desc: "vs. gestión manual tradicional", color: "var(--sesa-accent)", trend: "down-good" },
-  { value: 85, suffix: "%", prefix: "", label: "Tasa de recuperación", desc: "de glosas respondidas en término legal", color: "var(--sesa-accent-2)", trend: "up-good" },
-  { value: 2, suffix: "x", prefix: "", label: "Más rápido", desc: "ciclo de radicación vs proceso en papel", color: "var(--sesa-success)", trend: "up-good" },
-  { value: 48, suffix: "h", prefix: "<", label: "Onboarding completo", desc: "desde contrato hasta primera factura emitida", color: "var(--sesa-warning)", trend: "down-good" },
+  { value: 40, suffix: "%", prefix: "−", label: "Reducción de glosas", desc: "comparado con gestión manual de servicios", color: "var(--sesa-accent)", trend: "down-good" },
+  { value: 85, suffix: "%", prefix: "", label: "Tasa de recuperación", desc: "de glosas respondidas dentro del término legal", color: "var(--sesa-accent-2)", trend: "up-good" },
+  { value: 4, suffix: "h", prefix: "<", label: "Tiempo de autorización", desc: "respuesta EPS promedio gestionada desde SESA", color: "var(--sesa-success)", trend: "down-good" },
+  { value: 48, suffix: "h", prefix: "<", label: "Onboarding completo", desc: "desde contrato hasta primer servicio gestionado", color: "var(--sesa-warning)", trend: "down-good" },
   { value: 99, suffix: ".9% uptime", prefix: "", label: "SLA garantizado", desc: "infraestructura cloud de alta disponibilidad", color: "var(--sesa-info)", trend: "up-good" },
-  { value: 120, suffix: "+", prefix: "", label: "Instituciones activas", desc: "clínicas, hospitales y redes en Colombia", color: "var(--sesa-accent)", trend: "up-good" },
+  { value: 120, suffix: "+", prefix: "", label: "Instituciones activas", desc: "hospitales, clínicas e IPS en Colombia", color: "var(--sesa-accent)", trend: "up-good" },
 ];
 
 function useCountUp(target: number, duration = 1500, active: boolean) {
@@ -139,7 +139,7 @@ export function Stats() {
             Resultados <span className="gradient-text">verificables</span>
           </h2>
           <p style={{ fontSize: "15px", color: "var(--sesa-text-secondary)", maxWidth: "480px", margin: "0 auto" }}>
-            Métricas reales de instituciones de salud que operan con SESA en Colombia.
+            Indicadores operativos y financieros de instituciones hospitalarias que gestionan sus servicios con SESA en Colombia.
           </p>
         </motion.div>
 

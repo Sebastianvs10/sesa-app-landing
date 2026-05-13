@@ -3,14 +3,14 @@
 import { motion } from "framer-motion";
 
 const LOGOS = [
-  { name: "Sura EPS", abbr: "SURA", color: "#0066CC" },
-  { name: "Sanitas EPS", abbr: "SAN", color: "#E31837" },
-  { name: "Nueva EPS", abbr: "NEPS", color: "#009B4E" },
-  { name: "Compensar EPS", abbr: "COMP", color: "#FF6B00" },
-  { name: "Coomeva EPS", abbr: "COOM", color: "#8B0000" },
-  { name: "Famisanar", abbr: "FAMI", color: "#1E3A5F" },
-  { name: "Colmédica", abbr: "COL", color: "#00A859" },
-  { name: "Cruz Blanca", abbr: "CB", color: "#003580" },
+  { name: "Hospital Universitario", abbr: "HUV", color: "#0066CC" },
+  { name: "Clínica del Country", abbr: "CDC", color: "#1E3A5F" },
+  { name: "Red IPS del Valle", abbr: "RIV", color: "#0A7A70" },
+  { name: "Grupo Hospitalario", abbr: "GHS", color: "#7C3AED" },
+  { name: "Clínica San Rafael", abbr: "CSR", color: "#E31837" },
+  { name: "IPS Comunitaria", abbr: "IPC", color: "#059669" },
+  { name: "Centro Médico", abbr: "CMS", color: "#B45309" },
+  { name: "Hospital Regional", abbr: "HRS", color: "#1843A0" },
 ];
 
 export function TrustedBy() {
@@ -40,7 +40,7 @@ export function TrustedBy() {
             marginBottom: "32px",
           }}
         >
-          Utilizado por líderes del sector salud colombiano
+          Instituciones hospitalarias que gestionan sus servicios con SESA
         </motion.p>
 
         {/* Logo grid */}
@@ -137,7 +137,7 @@ export function TrustedBy() {
         >
           {[
             { value: "120+", label: "Instituciones activas" },
-            { value: "$48B+", label: "Procesado en COP" },
+            { value: "1.2M+", label: "Servicios gestionados/mes" },
             { value: "99.9%", label: "Uptime garantizado" },
             { value: "< 4h", label: "Tiempo de radicación" },
           ].map(({ value, label }) => (
