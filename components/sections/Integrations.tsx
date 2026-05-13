@@ -7,39 +7,39 @@ import { Button } from "@/components/ui/Button";
 
 const INTEGRATIONS = [
   {
-    category: "Regulatorio",
+    category: "Regulatorio MSPS y DIAN",
     color: "#E31837",
     items: [
-      { name: "DIAN", desc: "Factura electrónica de venta FEV, notas crédito/débito y validación en tiempo real.", status: "Nativo" },
-      { name: "SIVIGILA", desc: "Reporte de eventos de salud pública con trazabilidad automática.", status: "Nativo" },
-      { name: "SISPRO", desc: "Carga de indicadores del sector salud al Ministerio.", status: "En roadmap" },
+      { name: "DIAN FEV", desc: "Factura electrónica de venta UBL 2.1, CUFE + QR y validación en tiempo real — Res. 000042.", status: "Nativo" },
+      { name: "SIVIGILA", desc: "Notificación de ENO (enfermedades de notificación obligatoria) — Decreto 3518/2006.", status: "Nativo" },
+      { name: "RDA / IHCE", desc: "Registro de Datos Asistenciales y envío al sistema IHCE del Ministerio de Salud.", status: "Nativo" },
     ],
   },
   {
-    category: "EPS y Aseguradoras",
+    category: "Aseguradores y afiliación",
     color: "#0066CC",
     items: [
-      { name: "Portales EPS", desc: "Integración con portales de radicación de Sura, Sanitas, Nueva EPS, Compensar y más.", status: "Nativo" },
-      { name: "Glosas electrónicas", desc: "Recepción y respuesta de glosas por intercambio de archivos EDI/XML estándar.", status: "Nativo" },
-      { name: "ADRES", desc: "Consulta de afiliados y estado de aseguramiento en tiempo real.", status: "Beta" },
+      { name: "Portales EPS", desc: "Radicación y seguimiento con Sura, Sanitas, Nueva EPS, Compensar, Coomeva y más.", status: "Nativo" },
+      { name: "ADRES / BDUA", desc: "Verificación de afiliación y estado de aseguramiento en tiempo real.", status: "Nativo" },
+      { name: "Glosas EDI/XML", desc: "Recepción y respuesta de glosas por intercambio de archivos estándar — Res. 5258/2015.", status: "Nativo" },
     ],
   },
   {
-    category: "Sistemas clínicos (HIS/RIS)",
+    category: "Interoperabilidad clínica",
     color: "#7C3AED",
     items: [
-      { name: "HL7 FHIR R4", desc: "Interoperabilidad con sistemas clínicos mediante el estándar internacional HL7 FHIR.", status: "Nativo" },
-      { name: "API REST", desc: "API REST documentada (OpenAPI 3.0) para integración con cualquier sistema HIS/RIS.", status: "Nativo" },
-      { name: "Webhooks", desc: "Notificaciones en tiempo real de cambios de estado de facturas y glosas.", status: "Nativo" },
+      { name: "HL7 FHIR R4", desc: "Interoperabilidad con HIS/RIS externos mediante el estándar FHIR R4 — Res. 1888/2025 MSPS.", status: "Nativo" },
+      { name: "MIPRES", desc: "Prescripción de medicamentos y servicios no incluidos en PBS — plataforma MinSalud.", status: "Nativo" },
+      { name: "API REST / Webhooks", desc: "API OpenAPI 3.0 + webhooks de eventos para integración con cualquier sistema externo.", status: "Nativo" },
     ],
   },
   {
-    category: "Productividad",
+    category: "Productividad y reportería",
     color: "#059669",
     items: [
-      { name: "Microsoft 365", desc: "Exportación de reportes directamente a Excel y SharePoint.", status: "Nativo" },
-      { name: "Slack / Teams", desc: "Alertas de glosas, vencimientos y estados críticos en tus canales.", status: "Beta" },
-      { name: "Power BI", desc: "Conector nativo para visualizar datos SESA en dashboards Power BI.", status: "En roadmap" },
+      { name: "Microsoft 365", desc: "Exportación de reportes clínicos y financieros a Excel y SharePoint.", status: "Nativo" },
+      { name: "Power BI", desc: "Conector nativo para visualizar indicadores SESA en dashboards Power BI.", status: "En roadmap" },
+      { name: "Slack / Teams", desc: "Alertas de glosas, vencimientos de términos y eventos críticos en tus canales.", status: "Beta" },
     ],
   },
 ];
@@ -82,8 +82,7 @@ export function Integrations() {
               <span className="gradient-text">el ecosistema salud</span>
             </h2>
             <p style={{ fontSize: "15px", color: "var(--sesa-text-secondary)", lineHeight: 1.75, marginBottom: "28px" }}>
-              SESA se integra nativamente con DIAN, portales EPS, sistemas HIS/RIS y herramientas de productividad.
-              Sin desarrollos costosos: listo en días.
+              SESA se integra nativamente con DIAN, ADRES, SIVIGILA, MIPRES, portales EPS y sistemas HIS/RIS mediante FHIR R4 — cumpliendo la normativa colombiana en cada integración.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
@@ -195,11 +194,11 @@ export function Integrations() {
 function IntegrationHub() {
   const nodes = [
     { label: "DIAN", color: "#E31837", angle: 0 },
-    { label: "EPS", color: "#0066CC", angle: 60 },
-    { label: "HIS/RIS", color: "#7C3AED", angle: 120 },
-    { label: "FHIR", color: "#7C3AED", angle: 180 },
-    { label: "Power BI", color: "#F2C811", angle: 240 },
-    { label: "ADRES", color: "#059669", angle: 300 },
+    { label: "ADRES", color: "#0066CC", angle: 60 },
+    { label: "FHIR R4", color: "#7C3AED", angle: 120 },
+    { label: "MIPRES", color: "#7C3AED", angle: 180 },
+    { label: "SIVIGILA", color: "#059669", angle: 240 },
+    { label: "EPS", color: "#1843A0", angle: 300 },
   ];
 
   return (

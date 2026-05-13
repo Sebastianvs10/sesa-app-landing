@@ -1,38 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, AlertTriangle, Wallet, BarChart3, ArrowRight, CheckCircle2, ClipboardList } from "lucide-react";
+import { FileText, AlertTriangle, Wallet, BarChart3, ArrowRight, CheckCircle2, Stethoscope, Pill } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 
 const FEATURES_MAIN = [
   {
-    badge: "Punto de entrada del servicio",
+    badge: "Historia clínica digital",
     badgeVariant: "accent" as const,
-    title: "Autorización de servicios ante EPS",
+    title: "Atención clínica integral en un solo sistema",
     description:
-      "Gestiona las solicitudes de autorización de procedimientos, medicamentos y hospitalizaciones ante cada EPS. Seguimiento en tiempo real del estado, alertas de respuesta y trazabilidad completa del proceso.",
+      "Historia clínica electrónica con cumplimiento Res. 1995/1999, atención SOAP por especialidad, órdenes clínicas, evoluciones de enfermería y consentimientos informados. Desde consulta externa hasta urgencias y hospitalización.",
     points: [
-      "Solicitud y seguimiento de autorizaciones en línea",
-      "Alertas de vencimiento y respuestas pendientes",
-      "Gestión de negaciones con argumentario normativo",
-      "Integración directa con portales EPS autorizadores",
+      "HC electrónica auditada con trazabilidad completa",
+      "Consulta, urgencias, hospitalización y cirugía",
+      "Diagnóstico CIE-10 + sugerencias de guías GPC",
+      "Órdenes de laboratorio, imágenes y procedimientos",
     ],
-    icon: ClipboardList,
+    icon: Stethoscope,
     color: "var(--sesa-accent)",
-    mockup: <AutorizacionMockup />,
+    mockup: <HistoriaClinicaMockup />,
     reverse: false,
   },
   {
-    badge: "Núcleo de facturación",
+    badge: "Facturación y cumplimiento DIAN",
     badgeVariant: "accent" as const,
     title: "Facturación electrónica sin errores",
     description:
-      "Genera, valida y radica facturas electrónicas de venta cumpliendo normativa DIAN, RIPS y resoluciones vigentes. El motor de validación detecta inconsistencias antes de radicar para garantizar el pago.",
+      "Genera, valida y radica facturas electrónicas de venta con CUPS y RIPS cumpliendo la normativa DIAN y las resoluciones del MSPS. El motor de validación detecta inconsistencias antes de radicar para garantizar el pago.",
     points: [
-      "Generación automática de RIPS desde el HIS",
+      "RIPS automático desde la historia clínica",
       "Validación previa a radicación (99.1% aprobadas)",
-      "FEV con firma electrónica integrada",
-      "Seguimiento de estados por servicio y por EPS",
+      "FEV con CUFE + QR — Res. 000042 DIAN",
+      "Seguimiento de estado por EPS en tiempo real",
     ],
     icon: FileText,
     color: "var(--sesa-accent)",
@@ -44,10 +44,10 @@ const FEATURES_MAIN = [
     badgeVariant: "warning" as const,
     title: "Gestión de glosas que recupera",
     description:
-      "Centraliza, prioriza y responde glosas dentro de los términos legales con alertas automáticas y workflows guiados por normativa. Dashboard de conciliación con EPS integrado.",
+      "Centraliza, prioriza y responde glosas dentro de los términos legales con alertas automáticas y workflows guiados por normativa — Res. 5258/2015. Dashboard de conciliación con EPS integrado.",
     points: [
-      "Alertas de vencimiento por término legal",
-      "Plantillas de respuesta pre-validadas",
+      "Alertas de vencimiento por término legal (30 días hábiles)",
+      "Plantillas de respuesta pre-validadas por tipo de glosa",
       "Conciliación directa con portales EPS",
       "Tasa de recuperación promedio: 85%",
     ],
@@ -57,76 +57,74 @@ const FEATURES_MAIN = [
     reverse: false,
   },
   {
-    badge: "Inteligencia financiera",
+    badge: "Farmacia y medicamentos",
     badgeVariant: "accent2" as const,
-    title: "Cartera con priorización inteligente",
+    title: "Farmacia hospitalaria integrada",
     description:
-      "Visualiza la cartera hospitalaria por EPS, edad, estado y riesgo. El motor de priorización identifica qué gestionar primero para maximizar el recaudo sin deteriorar la relación con el asegurador.",
+      "Control de inventario de medicamentos, dispensación con receta electrónica, farmacovigilancia RAM y prescripción MIPRES para medicamentos no PBS — todo integrado con la historia clínica.",
     points: [
-      "Segmentación por riesgo, antigüedad y EPS",
-      "Score de cobro por contrato y tipo de servicio",
-      "Flujo de gestión de cobro automatizado",
-      "Reportes ejecutivos para junta directiva",
+      "Dispensación ligada a fórmula médica del HIS",
+      "Control de stocks, lotes y fechas de vencimiento",
+      "MIPRES — prescripción no PBS (plataforma MinSalud)",
+      "Farmacovigilancia RAM — INVIMA Res. 2004/1999",
     ],
-    icon: Wallet,
+    icon: Pill,
     color: "var(--sesa-accent-2)",
-    mockup: <CarteraMockup />,
+    mockup: <FarmaciaMockup />,
     reverse: true,
   },
 ];
 
-function AutorizacionMockup() {
-  const items = [
-    { id: "AUT-8821", servicio: "Cirugía ambulatoria", eps: "Sura EPS", estado: "Autorizado", ok: true, dias: "Hoy" },
-    { id: "AUT-8820", servicio: "Resonancia magnética", eps: "Sanitas", estado: "Pendiente", ok: null, dias: "2 días" },
-    { id: "AUT-8819", servicio: "Hospitalización UCI", eps: "Nueva EPS", estado: "Negado", ok: false, dias: "Vencido" },
-    { id: "AUT-8818", servicio: "Quimioterapia ciclo 3", eps: "Compensar", estado: "Autorizado", ok: true, dias: "Ayer" },
+function HistoriaClinicaMockup() {
+  const atenciones = [
+    { codigo: "A10.00", desc: "DM tipo 2 sin complicaciones", tipo: "Consulta ext.", medico: "Dr. Morales", estado: "Cerrada", ok: true },
+    { codigo: "J06.9", desc: "IRAS — Vías respiratorias sup.", tipo: "Urgencias", medico: "Dr. Castro", estado: "Activa", ok: null },
+    { codigo: "Z34.0", desc: "Control prenatal 1er trim.", tipo: "PYP", medico: "Dra. Ríos", estado: "Citada", ok: true },
   ];
-  const colorMap: Record<string, string> = {
-    Autorizado: "var(--sesa-success)",
-    Pendiente: "var(--sesa-warning)",
-    Negado: "var(--sesa-danger)",
-  };
   return (
-    <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+    <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
-        <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Autorizaciones activas</span>
+        <div>
+          <p style={{ fontSize: "10px", color: "var(--sesa-text-muted)", marginBottom: "2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            Historia clínica
+          </p>
+          <p style={{ fontSize: "13px", fontWeight: 700, color: "var(--sesa-text-primary)" }}>Rodríguez Gómez, Ana M.</p>
+        </div>
         <span style={{
           fontSize: "10px", fontWeight: 700, padding: "3px 8px",
           backgroundColor: "var(--sesa-accent-muted)", color: "var(--sesa-accent)",
           borderRadius: "var(--sesa-radius-full)",
           border: "1px solid var(--sesa-border-accent)",
-        }}>24 pendientes hoy</span>
+        }}>Activa · Sura EPS</span>
       </div>
-      {items.map((r) => (
-        <div key={r.id} style={{
-          display: "flex", justifyContent: "space-between", alignItems: "center",
+      {atenciones.map((a) => (
+        <div key={a.codigo} style={{
           padding: "10px 12px",
           backgroundColor: "var(--sesa-surface)",
           borderRadius: "var(--sesa-radius-md)",
-          border: `1px solid ${r.ok === false ? "var(--sesa-danger-muted)" : "var(--sesa-border)"}`,
-          borderLeft: `3px solid ${colorMap[r.estado]}`,
-          gap: "8px",
+          border: "1px solid var(--sesa-border)",
+          borderLeft: `3px solid ${a.ok === null ? "var(--sesa-warning)" : "var(--sesa-accent)"}`,
         }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px", flex: 1 }}>
-            <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>{r.servicio}</span>
-            <span style={{ fontSize: "10px", color: "var(--sesa-text-muted)", fontFamily: "monospace" }}>{r.id} · {r.eps}</span>
+          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "3px" }}>
+            <span style={{ fontSize: "10px", fontFamily: "monospace", color: "var(--sesa-accent)", fontWeight: 700 }}>{a.codigo}</span>
+            <span style={{
+              fontSize: "10px", fontWeight: 600,
+              color: a.ok === null ? "var(--sesa-warning)" : "var(--sesa-success)",
+            }}>{a.estado}</span>
           </div>
-          <div style={{ textAlign: "right", flexShrink: 0 }}>
-            <div style={{ fontSize: "10px", fontWeight: 700, color: colorMap[r.estado], marginBottom: "2px" }}>{r.estado}</div>
-            <div style={{ fontSize: "9px", color: "var(--sesa-text-muted)" }}>{r.dias}</div>
-          </div>
+          <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)", marginBottom: "2px" }}>{a.desc}</p>
+          <p style={{ fontSize: "10px", color: "var(--sesa-text-muted)" }}>{a.tipo} · {a.medico}</p>
         </div>
       ))}
       <div style={{
-        marginTop: "4px", padding: "8px 12px",
+        padding: "8px 12px", marginTop: "2px",
         backgroundColor: "var(--sesa-accent-muted)",
         borderRadius: "var(--sesa-radius-md)",
         border: "1px solid var(--sesa-border-accent)",
-        display: "flex", justifyContent: "space-between",
+        display: "flex", justifyContent: "space-between", alignItems: "center",
       }}>
-        <span style={{ fontSize: "11px", color: "var(--sesa-text-secondary)" }}>Tiempo promedio de respuesta EPS</span>
-        <span style={{ fontSize: "12px", fontWeight: 800, color: "var(--sesa-accent)" }}>4.2 horas</span>
+        <span style={{ fontSize: "11px", color: "var(--sesa-text-secondary)" }}>Órdenes pendientes de resultado</span>
+        <span style={{ fontSize: "13px", fontWeight: 800, color: "var(--sesa-accent)" }}>3</span>
       </div>
     </div>
   );
@@ -136,10 +134,10 @@ function FacturacionMockup() {
   return (
     <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
       {[
-        { id: "RIPS-001", tipo: "Consulta externa", valor: "$42,000", estado: "✓ Validada", ok: true },
-        { id: "RIPS-002", tipo: "Urgencias", valor: "$187,000", estado: "✓ Validada", ok: true },
-        { id: "RIPS-003", tipo: "Hospitalización", valor: "$1,240,000", estado: "⚠ Revisar CUPS", ok: false },
-        { id: "RIPS-004", tipo: "Medicamentos", valor: "$94,500", estado: "✓ Validada", ok: true },
+        { id: "RIPS-001", tipo: "Consulta externa — Medicina general", valor: "$42,000", estado: "✓ Validada", ok: true },
+        { id: "RIPS-002", tipo: "Urgencias — Observación 6h", valor: "$187,000", estado: "✓ Validada", ok: true },
+        { id: "RIPS-003", tipo: "Hospitalización — 3 días", valor: "$1,240,000", estado: "⚠ Revisar CUPS", ok: false },
+        { id: "RIPS-004", tipo: "Medicamentos dispensados", valor: "$94,500", estado: "✓ Validada", ok: true },
       ].map((r) => (
         <div key={r.id} style={{
           display: "flex", justifyContent: "space-between", alignItems: "center",
@@ -213,49 +211,48 @@ function GlosaMockup() {
   );
 }
 
-function CarteraMockup() {
-  const eps = [
-    { name: "Sura EPS", monto: "$8.4M", dias: 28, score: 92, color: "#0066CC" },
-    { name: "Sanitas", monto: "$5.1M", dias: 45, score: 74, color: "#E31837" },
-    { name: "Nueva EPS", monto: "$3.8M", dias: 67, score: 51, color: "#009B4E" },
-    { name: "Compensar", monto: "$2.2M", dias: 38, score: 81, color: "#FF6B00" },
+function FarmaciaMockup() {
+  const items = [
+    { nombre: "Metformina 850mg", stock: 240, minimo: 50, estado: "OK", tipo: "PBS" },
+    { nombre: "Atorvastatina 20mg", stock: 18, minimo: 30, estado: "Bajo stock", tipo: "PBS" },
+    { nombre: "Adalimumab 40mg", stock: 4, minimo: 2, estado: "MIPRES", tipo: "No PBS" },
+    { nombre: "Omeprazol 20mg", stock: 312, minimo: 60, estado: "OK", tipo: "PBS" },
   ];
+  const colorEstado: Record<string, string> = {
+    "OK": "var(--sesa-success)",
+    "Bajo stock": "var(--sesa-danger)",
+    "MIPRES": "var(--sesa-accent-2)",
+  };
   return (
     <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-        <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Cartera por EPS</span>
-        <span style={{ fontSize: "12px", fontWeight: 800, color: "var(--sesa-text-primary)", fontVariantNumeric: "tabular-nums" }}>$19.5M total</span>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "4px" }}>
+        <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Inventario farmacia</span>
+        <span style={{
+          fontSize: "10px", fontWeight: 700, padding: "3px 8px",
+          backgroundColor: "var(--sesa-danger-muted)", color: "var(--sesa-danger)",
+          borderRadius: "var(--sesa-radius-full)",
+        }}>1 en alerta</span>
       </div>
-      {eps.map((e) => (
-        <div key={e.name} style={{
+      {items.map((m) => (
+        <div key={m.nombre} style={{
           padding: "10px 12px",
           backgroundColor: "var(--sesa-surface)",
-          border: "1px solid var(--sesa-border)",
+          border: `1px solid ${m.estado === "Bajo stock" ? "rgba(239,68,68,0.2)" : "var(--sesa-border)"}`,
           borderRadius: "var(--sesa-radius-md)",
-          display: "flex", alignItems: "center", gap: "12px",
+          display: "flex", alignItems: "center", justifyContent: "space-between", gap: "10px",
         }}>
-          <div style={{
-            width: "32px", height: "32px", borderRadius: "8px",
-            backgroundColor: `${e.color}18`, border: `1px solid ${e.color}30`,
-            display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-          }}>
-            <span style={{ fontSize: "8px", fontWeight: 800, color: e.color }}>{e.name.slice(0,3).toUpperCase()}</span>
-          </div>
           <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-              <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>{e.name}</span>
-              <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--sesa-text-primary)", fontVariantNumeric: "tabular-nums" }}>{e.monto}</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ fontSize: "10px", color: "var(--sesa-text-muted)" }}>{e.dias} días prom.</span>
-              <div style={{
-                display: "flex", alignItems: "center", gap: "4px",
-                fontSize: "10px", fontWeight: 700,
-                color: e.score > 80 ? "var(--sesa-success)" : e.score > 60 ? "var(--sesa-warning)" : "var(--sesa-danger)",
-              }}>
-                Score {e.score}
-              </div>
-            </div>
+            <p style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)", marginBottom: "2px" }}>{m.nombre}</p>
+            <p style={{ fontSize: "10px", color: "var(--sesa-text-muted)" }}>Stock: {m.stock} unds · Mín: {m.minimo}</p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "2px" }}>
+            <span style={{
+              fontSize: "9px", fontWeight: 700, padding: "2px 6px",
+              backgroundColor: `${colorEstado[m.estado]}18`,
+              color: colorEstado[m.estado],
+              borderRadius: "var(--sesa-radius-full)",
+            }}>{m.estado}</span>
+            <span style={{ fontSize: "9px", color: "var(--sesa-text-muted)" }}>{m.tipo}</span>
           </div>
         </div>
       ))}
@@ -275,7 +272,7 @@ export function Features() {
           transition={{ duration: 0.5 }}
           style={{ textAlign: "center", marginBottom: "80px" }}
         >
-          <Badge variant="accent2" size="sm">Módulos de gestión hospitalaria</Badge>
+          <Badge variant="accent2" size="sm">Módulos del sistema</Badge>
           <h2 style={{
             fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
             fontWeight: 800, letterSpacing: "-0.03em",
@@ -283,11 +280,11 @@ export function Features() {
             margin: "16px 0",
             lineHeight: 1.12,
           }}>
-            Cada etapa del servicio hospitalario,{" "}
-            <span className="gradient-text">gestionada</span>
+            Clínico, financiero y normativo{" "}
+            <span className="gradient-text">en un solo HIS</span>
           </h2>
-          <p style={{ fontSize: "1.05rem", color: "var(--sesa-text-secondary)", maxWidth: "520px", margin: "0 auto", lineHeight: 1.7 }}>
-            Desde la autorización ante la EPS hasta el recaudo final — SESA cubre el flujo completo con trazabilidad y cumplimiento normativo en cada paso.
+          <p style={{ fontSize: "1.05rem", color: "var(--sesa-text-secondary)", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
+            Desde la historia clínica hasta la factura electrónica — SESA gestiona todo el ciclo de la IPS con cumplimiento normativo colombiano en cada módulo.
           </p>
         </motion.div>
 
@@ -406,9 +403,9 @@ function FeatureRow({ feature, index }: { feature: typeof FEATURES_MAIN[0]; inde
 
 function SupportingFeatures() {
   const items = [
-    { icon: BarChart3, title: "Indicadores hospitalarios", desc: "Tableros KPI operativos y financieros en tiempo real: ocupación, autorización, radicación, glosas y recaudo en un solo panel.", color: "var(--sesa-success)", badge: "Tiempo real" },
-    { icon: FileText, title: "Multi-sede y multi-EPS", desc: "Centraliza la gestión de servicios de múltiples sedes, especialidades y contratos con EPS desde un único panel operativo.", color: "var(--sesa-info)", badge: "Multi-tenant" },
-    { icon: AlertTriangle, title: "Auditoría médica y trazabilidad", desc: "Registro completo de cada servicio: usuario, fecha, estado, autorización y facturación — para auditorías internas y externas.", color: "var(--sesa-accent-2)", badge: "Compliance" },
+    { icon: BarChart3, title: "PYP y salud pública", desc: "Programas de promoción y prevención (RIAS Res. 3280/2018), vacunación PAI, SIVIGILA y EBS territorial.", color: "var(--sesa-success)", badge: "Salud pública" },
+    { icon: FileText, title: "Multi-sede y especialidades", desc: "Gestiona múltiples sedes, especialidades y EPS desde un único panel. De consulta externa a hospitalización de alta complejidad.", color: "var(--sesa-info)", badge: "Multi-tenant" },
+    { icon: AlertTriangle, title: "Calidad y SOGCS", desc: "Registro de eventos adversos, indicadores de calidad SOGCS, PQRS y reportes regulatorios para habilitación y acreditación.", color: "var(--sesa-accent-2)", badge: "Compliance" },
   ];
 
   return (

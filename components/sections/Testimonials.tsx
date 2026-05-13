@@ -6,29 +6,29 @@ import { Badge } from "@/components/ui/Badge";
 
 const TESTIMONIALS = [
   {
-    quote: "Con SESA centralizamos la gestión de autorizaciones de todas nuestras especialidades. El tiempo de respuesta ante EPS bajó de 3 días a menos de 4 horas. Los servicios ya no se quedan represados por trámites.",
+    quote: "SESA nos permitió unificar la historia clínica de todas nuestras sedes. Los médicos tienen la información del paciente disponible en tiempo real, sin importar dónde fue atendido la última vez.",
     name: "Dr. Andrés Morales",
-    role: "Director Médico-Administrativo",
+    role: "Director Médico",
     org: "Clínica San Rafael",
     city: "Bogotá",
     avatar: "AM",
-    result: "−70% tiempo autorización",
+    result: "HC unificada multi-sede",
     resultColor: "var(--sesa-success)",
     accentColor: "var(--sesa-accent)",
   },
   {
-    quote: "La radicación electrónica con SESA pasó de tomar 3 días a menos de 4 horas. El módulo de RIPS automático eliminó por completo los reprocesos de nuestro equipo de facturación.",
+    quote: "El módulo de RIPS automático y la facturación electrónica DIAN eliminaron por completo los reprocesos. La radicación pasó de tomar 3 días a menos de 4 horas.",
     name: "Lic. Carolina Ospina",
     role: "Jefe de Facturación",
     org: "Hospital Regional del Caribe",
     city: "Barranquilla",
     avatar: "CO",
-    result: "3 días → 4 horas",
+    result: "3 días → 4 horas radicación",
     resultColor: "var(--sesa-accent-2)",
     accentColor: "var(--sesa-accent-2)",
   },
   {
-    quote: "SESA nos dio trazabilidad de cada servicio prestado desde la autorización hasta el pago. Ahora la auditoría médica tiene información en tiempo real sin depender del área administrativa.",
+    quote: "Con SESA tenemos trazabilidad completa desde la consulta hasta el pago. La auditoría médica accede a indicadores de calidad en tiempo real sin depender del área administrativa.",
     name: "Dra. Juliana Pérez",
     role: "Coordinadora de Auditoría Médica",
     org: "Red Hospitalaria del Eje Cafetero",
@@ -39,35 +39,35 @@ const TESTIMONIALS = [
     accentColor: "var(--sesa-info)",
   },
   {
-    quote: "La cartera de servicios hospitalarios es muy compleja: múltiples contratos, tarifas y EPS. Con SESA tenemos visibilidad total y el recaudo mejoró un 22% en el primer semestre.",
-    name: "Lic. Fernando Ríos",
-    role: "Gerente Financiero",
-    org: "Clínica del Country Norte",
+    quote: "La farmacia quedó totalmente integrada con la historia clínica. La dispensación ya no necesita reingreso de datos: el sistema lee la fórmula médica y actualiza el inventario automáticamente.",
+    name: "Q.F. Fernando Ríos",
+    role: "Regente de Farmacia",
+    org: "Hospital San Vicente",
     city: "Medellín",
     avatar: "FR",
-    result: "+22% recaudo",
+    result: "Dispensación sin reproceso",
     resultColor: "var(--sesa-success)",
     accentColor: "var(--sesa-accent)",
   },
   {
-    quote: "En 48 horas ya gestionábamos autorizaciones y emitíamos facturas desde SESA. La transición no interrumpió la atención de ningún paciente. Soporte excepcional durante todo el proceso.",
+    quote: "En 48 horas teníamos urgencias, hospitalización y consulta externa operando en SESA. La transición no interrumpió la atención de un solo paciente. El soporte fue excepcional.",
     name: "Dra. María Fernanda Castro",
     role: "Directora Médica",
     org: "IPS Salud Total",
     city: "Cali",
     avatar: "MC",
-    result: "48h onboarding",
+    result: "48h onboarding completo",
     resultColor: "var(--sesa-warning)",
     accentColor: "var(--sesa-warning)",
   },
   {
-    quote: "La integración con nuestro HIS fue transparente. Ahora todo el flujo — orden médica, autorización, prestación, factura — queda registrado automáticamente en SESA sin reingreso manual de datos.",
+    quote: "La integración con nuestros sistemas vía FHIR R4 fue sin traumatismos. Ahora el flujo clínico completo — consulta, orden, laboratorio, resultado, factura — se gestiona en un solo sistema.",
     name: "Ing. Luis Alberto García",
     role: "Líder de Tecnología",
     org: "Hospital Universitario del Valle",
     city: "Cali",
     avatar: "LG",
-    result: "0 reingreso manual",
+    result: "Integración FHIR en 5 días",
     resultColor: "var(--sesa-accent-2)",
     accentColor: "var(--sesa-accent-2)",
   },
@@ -112,8 +112,8 @@ export function Testimonials() {
             Instituciones que ya{" "}
             <span className="gradient-text">confían en SESA</span>
           </h2>
-          <p style={{ fontSize: "15px", color: "var(--sesa-text-secondary)", maxWidth: "480px", margin: "0 auto" }}>
-            Resultados verificables de directivos médicos, financieros y de TI de instituciones hospitalarias colombianas.
+          <p style={{ fontSize: "15px", color: "var(--sesa-text-secondary)", maxWidth: "520px", margin: "0 auto" }}>
+            Resultados verificables de médicos, farmacéuticos, directivos y líderes de TI de IPS colombianas que operan con SESA.
           </p>
         </motion.div>
 

@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
 const TRUST_PILLS = [
-  { icon: ShieldCheck, text: "Cumplimiento normativo MINSALUD" },
-  { icon: TrendingUp, text: "Autorización de servicios en línea" },
+  { icon: ShieldCheck, text: "Historia clínica Res. 1995/1999" },
+  { icon: TrendingUp, text: "Facturación DIAN + RIPS nativa" },
   { icon: Clock, text: "Onboarding en 48h" },
 ];
 
@@ -73,7 +73,7 @@ export function Hero() {
               border: "1px solid var(--sesa-border-accent)",
             }}>Nuevo</span>
             <span style={{ fontSize: "12.5px", color: "var(--sesa-text-secondary)", fontWeight: 500 }}>
-              SESA v3 · Autorización, facturación y cartera hospitalaria
+              SESA v3 · HIS clínico, financiero y de salud pública para IPS
             </span>
             <ArrowRight size={12} style={{ color: "var(--sesa-text-muted)" }} />
           </div>
@@ -88,9 +88,9 @@ export function Hero() {
           color: "var(--sesa-text-primary)",
           marginBottom: "28px",
         }}>
-          Gestión integral de
+          La plataforma integral
           <br />
-          <span className="gradient-text">servicios hospitalarios</span>
+          <span className="gradient-text">para gestionar su IPS</span>
           <br />
           en Colombia
         </motion.h1>
@@ -104,10 +104,10 @@ export function Hero() {
           margin: "0 auto 44px",
           fontWeight: 400,
         }}>
-          SESA cubre el flujo completo del servicio hospitalario: autorización
-          ante EPS, registro de servicios, facturación electrónica DIAN,
-          gestión de glosas y cartera — todo integrado, con cumplimiento
-          normativo MINSALUD garantizado.
+          Historia clínica digital, atención en todas las especialidades,
+          facturación electrónica DIAN, RIPS, glosas y farmacia — un solo
+          sistema con cumplimiento normativo colombiano completo para hospitales,
+          clínicas e IPS de cualquier nivel de complejidad.
         </motion.p>
 
         {/* CTAs */}
@@ -206,17 +206,17 @@ export function Hero() {
 
 function DashboardMockup() {
   const kpis = [
-    { label: "Servicios autorizados", value: "1,248", trend: "+9.2%", up: true, color: "var(--sesa-accent)" },
-    { label: "Radicado del mes", value: "$2.84M", trend: "+12.4%", up: true, color: "var(--sesa-accent-2)" },
-    { label: "Glosas resueltas", value: "$847K", trend: "+8.1%", up: true, color: "var(--sesa-success)" },
-    { label: "Tasa de rechazo", value: "2.3%", trend: "-0.8pp", up: true, color: "var(--sesa-warning)" },
+    { label: "Consultas del día", value: "184", trend: "+6.4%", up: true, color: "var(--sesa-accent)" },
+    { label: "Pacientes hospitalizados", value: "47", trend: "82% ocu.", up: true, color: "var(--sesa-accent-2)" },
+    { label: "Facturas radicadas", value: "$2.84M", trend: "+12.4%", up: true, color: "var(--sesa-success)" },
+    { label: "Glosas pendientes", value: "3.1%", trend: "-0.8pp", up: true, color: "var(--sesa-warning)" },
   ];
 
   const rows = [
-    { id: "SVC-20240512", eps: "Sura EPS", monto: "$142,000", estado: "Autorizado", estadoColor: "var(--sesa-success)" },
-    { id: "SVC-20240511", eps: "Nueva EPS", monto: "$89,500", estado: "En trámite", estadoColor: "var(--sesa-warning)" },
-    { id: "FAC-20240510", eps: "Sanitas", monto: "$204,000", estado: "Radicada", estadoColor: "var(--sesa-accent)" },
-    { id: "FAC-20240509", eps: "Compensar", monto: "$67,800", estado: "Glosada", estadoColor: "var(--sesa-danger)" },
+    { id: "PAC-0841", eps: "Consulta ext. — Medicina general", monto: "Dr. Morales", estado: "Atendido", estadoColor: "var(--sesa-success)" },
+    { id: "PAC-0842", eps: "Urgencias — Trauma leve", monto: "Enf. Castro", estado: "En atención", estadoColor: "var(--sesa-warning)" },
+    { id: "PAC-0843", eps: "Hospitalización — Cama 12B", monto: "Dr. Vargas", estado: "Activo", estadoColor: "var(--sesa-accent)" },
+    { id: "FAC-2047", eps: "Sura EPS — Factura electrónica", monto: "$204,000", estado: "Radicada", estadoColor: "var(--sesa-accent-2)" },
   ];
 
   return (
@@ -225,10 +225,10 @@ function DashboardMockup() {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <p style={{ fontSize: "11px", color: "var(--sesa-text-muted)", marginBottom: "2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            Gestión de Servicios · Mayo 2026
+            Dashboard Ejecutivo · Mayo 2026
           </p>
           <p style={{ fontSize: "15px", fontWeight: 700, color: "var(--sesa-text-primary)" }}>
-            Hospital Universitario Regional
+            Clínica San Rafael
           </p>
         </div>
         <Badge variant="success">Sistema activo</Badge>
@@ -259,26 +259,27 @@ function DashboardMockup() {
         overflow: "hidden",
       }}>
         <div style={{ padding: "10px 14px", borderBottom: "1px solid var(--sesa-border)", display: "flex", justifyContent: "space-between" }}>
-          <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Servicios y facturas recientes</span>
+          <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Actividad clínica y financiera</span>
           <span style={{ fontSize: "11px", color: "var(--sesa-accent)", fontWeight: 500, cursor: "pointer" }}>Ver todas →</span>
         </div>
-        {rows.map((r, i) => (
-          <div key={r.id} style={{
-            display: "grid", gridTemplateColumns: "1fr 1fr 1fr auto",
-            padding: "8px 14px", gap: "12px", alignItems: "center",
-            borderBottom: i < rows.length - 1 ? "1px solid var(--sesa-border)" : "none",
-          }}>
-            <span style={{ fontSize: "11px", color: "var(--sesa-text-muted)", fontFamily: "monospace" }}>{r.id}</span>
-            <span style={{ fontSize: "11px", color: "var(--sesa-text-secondary)" }}>{r.eps}</span>
-            <span style={{ fontSize: "11px", color: "var(--sesa-text-primary)", fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>{r.monto}</span>
-            <span style={{
-              fontSize: "10px", fontWeight: 600, padding: "2px 8px",
-              borderRadius: "var(--sesa-radius-full)",
-              backgroundColor: `${r.estadoColor}18`,
-              color: r.estadoColor,
-            }}>{r.estado}</span>
-          </div>
-        ))}
+          {rows.map((r, i) => (
+            <div key={r.id} style={{
+              display: "grid", gridTemplateColumns: "56px 1fr 90px auto",
+              padding: "8px 14px", gap: "10px", alignItems: "center",
+              borderBottom: i < rows.length - 1 ? "1px solid var(--sesa-border)" : "none",
+            }}>
+              <span style={{ fontSize: "10px", color: "var(--sesa-text-muted)", fontFamily: "monospace" }}>{r.id}</span>
+              <span style={{ fontSize: "11px", color: "var(--sesa-text-secondary)" }}>{r.eps}</span>
+              <span style={{ fontSize: "11px", color: "var(--sesa-text-primary)", fontWeight: 500 }}>{r.monto}</span>
+              <span style={{
+                fontSize: "10px", fontWeight: 600, padding: "2px 8px",
+                borderRadius: "var(--sesa-radius-full)",
+                backgroundColor: `${r.estadoColor}18`,
+                color: r.estadoColor,
+                whiteSpace: "nowrap",
+              }}>{r.estado}</span>
+            </div>
+          ))}
       </div>
       <style>{`@media(max-width:640px){.mock-kpi-grid{grid-template-columns:repeat(2,1fr)!important}}`}</style>
     </div>
