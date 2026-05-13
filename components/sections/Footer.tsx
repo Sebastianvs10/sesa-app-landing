@@ -5,18 +5,18 @@ import { Mail, Phone, MapPin, ExternalLink, ArrowRight, Link2 } from "lucide-rea
 
 const FOOTER_LINKS = {
   Producto: [
-    { label: "Facturación electrónica", href: "#features" },
-    { label: "Gestión de glosas", href: "#features" },
-    { label: "Cartera y recaudo", href: "#features" },
-    { label: "Reportes e indicadores", href: "#features" },
-    { label: "Integraciones", href: "#integrations" },
-    { label: "Changelog", href: "#" },
+    { label: "Facturación electrónica", href: "/#features" },
+    { label: "Gestión de glosas", href: "/#features" },
+    { label: "Cartera y recaudo", href: "/#features" },
+    { label: "Reportes e indicadores", href: "/#features" },
+    { label: "Integraciones", href: "/#integrations" },
+    { label: "Changelog", href: "/changelog" },
   ],
   Empresa: [
-    { label: "Sobre SESA", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Casos de éxito", href: "#testimonials" },
-    { label: "Equipo", href: "#" },
+    { label: "Sobre SESA", href: "/sobre-sesa" },
+    { label: "Blog", href: "/blog" },
+    { label: "Casos de éxito", href: "/casos-de-exito" },
+    { label: "Equipo", href: "/sobre-sesa#equipo" },
     { label: "Carreras", href: "#", badge: "Hiring" },
   ],
   Recursos: [
@@ -27,11 +27,11 @@ const FOOTER_LINKS = {
     { label: "Centro de ayuda", href: "#" },
   ],
   Legal: [
-    { label: "Términos de servicio", href: "#" },
-    { label: "Política de privacidad", href: "#" },
-    { label: "Política de cookies", href: "#" },
-    { label: "Habeas data", href: "#" },
-    { label: "SLA", href: "#" },
+    { label: "Términos de servicio", href: "/legal/terminos" },
+    { label: "Política de privacidad", href: "/legal/privacidad" },
+    { label: "Política de cookies", href: "/legal/cookies" },
+    { label: "Habeas data", href: "/legal/habeas-data" },
+    { label: "SLA", href: "/legal/terminos#5" },
   ],
 };
 
