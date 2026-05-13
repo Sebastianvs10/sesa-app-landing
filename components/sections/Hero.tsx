@@ -1,184 +1,151 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, TrendingUp, Clock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
-const TRUST_ITEMS = [
-  "Sin contrato de permanencia",
-  "Onboarding en 48h",
-  "Soporte técnico incluido",
+const TRUST_PILLS = [
+  { icon: ShieldCheck, text: "ISO 27001 ready" },
+  { icon: TrendingUp, text: "+40% menos glosas" },
+  { icon: Clock, text: "Onboarding en 48h" },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      delay: i * 0.1,
-      ease: [0.2, 0, 0, 1] as [number, number, number, number],
-    },
-  }),
-};
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.55, delay, ease: [0.2, 0, 0, 1] as [number, number, number, number] },
+});
 
 export function Hero() {
   return (
     <section
       style={{
         minHeight: "100vh",
+        padding: "96px 24px 80px",
+        position: "relative",
+        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "120px 24px 80px",
-        position: "relative",
-        overflow: "hidden",
-        textAlign: "center",
       }}
     >
-      {/* Background glow */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "900px",
-          height: "500px",
-          background:
-            "radial-gradient(ellipse at center, rgba(13,148,136,0.12) 0%, rgba(99,102,241,0.08) 50%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
+      {/* Background layers */}
+      <div aria-hidden style={{
+        position: "absolute", inset: 0, zIndex: 0,
+        background: "radial-gradient(ellipse 120% 60% at 50% -10%, rgba(13,148,136,0.13) 0%, transparent 60%)",
+        pointerEvents: "none",
+      }} />
+      <div aria-hidden style={{
+        position: "absolute", inset: 0, zIndex: 0,
+        background: "radial-gradient(ellipse 80% 50% at 80% 80%, rgba(99,102,241,0.08) 0%, transparent 60%)",
+        pointerEvents: "none",
+      }} />
+      {/* Grid */}
+      <div aria-hidden style={{
+        position: "absolute", inset: 0, zIndex: 0,
+        backgroundImage: `linear-gradient(var(--sesa-border) 1px, transparent 1px), linear-gradient(90deg, var(--sesa-border) 1px, transparent 1px)`,
+        backgroundSize: "64px 64px",
+        maskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 20%, transparent 100%)",
+        WebkitMaskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 20%, transparent 100%)",
+        opacity: 0.5,
+        pointerEvents: "none",
+      }} />
 
-      {/* Grid pattern */}
-      <div
-        aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: `linear-gradient(var(--sesa-border) 1px, transparent 1px),
-            linear-gradient(90deg, var(--sesa-border) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-          opacity: 0.4,
-          zIndex: 0,
-          maskImage: "radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%)",
-        }}
-      />
-
-      <div style={{ position: "relative", zIndex: 1, maxWidth: "800px" }}>
-        {/* Eyebrow badge */}
-        <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          style={{ marginBottom: "24px", display: "inline-flex", alignItems: "center", gap: "8px" }}
-        >
-          <Badge variant="accent">
-            <Sparkles size={12} />
-            Plataforma SaaS Salud Colombia
-          </Badge>
+      <div style={{ position: "relative", zIndex: 1, textAlign: "center", maxWidth: "860px" }}>
+        {/* Eyebrow */}
+        <motion.div {...fadeUp(0)} style={{ marginBottom: "28px", display: "inline-flex", alignItems: "center", gap: "10px" }}>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: "8px",
+            backgroundColor: "var(--sesa-surface)",
+            border: "1px solid var(--sesa-border)",
+            borderRadius: "var(--sesa-radius-full)",
+            padding: "5px 14px 5px 8px",
+            boxShadow: "var(--sesa-shadow-sm)",
+          }}>
+            <span style={{
+              backgroundColor: "var(--sesa-accent-muted)",
+              color: "var(--sesa-accent)",
+              fontSize: "10px", fontWeight: 700, letterSpacing: "0.06em",
+              textTransform: "uppercase", padding: "3px 8px",
+              borderRadius: "var(--sesa-radius-full)",
+              border: "1px solid var(--sesa-border-accent)",
+            }}>Nuevo</span>
+            <span style={{ fontSize: "12.5px", color: "var(--sesa-text-secondary)", fontWeight: 500 }}>
+              SESA v3 · Facturación IA + RIPS automático
+            </span>
+            <ArrowRight size={12} style={{ color: "var(--sesa-text-muted)" }} />
+          </div>
         </motion.div>
 
         {/* Headline */}
-        <motion.h1
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          style={{
-            fontSize: "clamp(2.5rem, 6vw, 4rem)",
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: "-0.03em",
-            color: "var(--sesa-text-primary)",
-            marginBottom: "24px",
-          }}
-        >
-          Gestión de salud{" "}
-          <span className="gradient-text">sin fricciones</span>
+        <motion.h1 {...fadeUp(0.08)} style={{
+          fontSize: "clamp(2.6rem, 6.5vw, 4.5rem)",
+          fontWeight: 800,
+          lineHeight: 1.07,
+          letterSpacing: "-0.04em",
+          color: "var(--sesa-text-primary)",
+          marginBottom: "28px",
+        }}>
+          La plataforma que
           <br />
-          Facturación que{" "}
-          <span className="gradient-text">recupera</span>
+          <span className="gradient-text">transforma el ciclo</span>
+          <br />
+          de ingresos en salud
         </motion.h1>
 
-        {/* Subtitle */}
-        <motion.p
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          style={{
-            fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
-            color: "var(--sesa-text-secondary)",
-            lineHeight: 1.7,
-            marginBottom: "40px",
-            maxWidth: "600px",
-            margin: "0 auto 40px",
-          }}
-        >
-          Automatiza la radicación, reduce glosas hasta un{" "}
-          <strong style={{ color: "var(--sesa-text-primary)" }}>40%</strong> y
-          acelera el recaudo de tu institución con SESA — la plataforma líder
-          para el sector salud colombiano.
+        {/* Subheadline */}
+        <motion.p {...fadeUp(0.16)} style={{
+          fontSize: "clamp(1rem, 2.2vw, 1.2rem)",
+          color: "var(--sesa-text-secondary)",
+          lineHeight: 1.75,
+          maxWidth: "580px",
+          margin: "0 auto 44px",
+          fontWeight: 400,
+        }}>
+          SESA automatiza la facturación electrónica, reduce glosas y acelera el
+          recaudo de hospitales, clínicas y redes de salud en Colombia con
+          cumplimiento normativo garantizado.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          style={{
-            display: "flex",
-            gap: "12px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            marginBottom: "48px",
-          }}
-        >
-          <Button variant="primary" size="lg">
-            Solicitar demo gratuito
-            <ArrowRight size={16} />
-          </Button>
-          <Button variant="secondary" size="lg">
-            Ver características
-          </Button>
+        <motion.div {...fadeUp(0.24)} style={{
+          display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginBottom: "56px",
+        }}>
+          <a href="#pricing" style={{ textDecoration: "none" }}>
+            <Button variant="primary" size="lg" style={{
+              background: "linear-gradient(135deg, var(--sesa-accent) 0%, var(--sesa-accent-2) 100%)",
+              boxShadow: "var(--sesa-shadow-glow-accent), var(--sesa-shadow-md)",
+            }}>
+              Solicitar demo gratuito
+              <ArrowRight size={16} />
+            </Button>
+          </a>
+          <a href="#features" style={{ textDecoration: "none" }}>
+            <Button variant="secondary" size="lg">
+              Ver características
+            </Button>
+          </a>
         </motion.div>
 
-        {/* Trust items */}
-        <motion.div
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          style={{
-            display: "flex",
-            gap: "24px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {TRUST_ITEMS.map((item) => (
-            <div
-              key={item}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-                color: "var(--sesa-text-secondary)",
-                fontSize: "13px",
-              }}
-            >
-              <CheckCircle2 size={14} style={{ color: "var(--sesa-accent)", flexShrink: 0 }} />
-              {item}
+        {/* Trust pills */}
+        <motion.div {...fadeUp(0.32)} style={{
+          display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap",
+        }}>
+          {TRUST_PILLS.map(({ icon: Icon, text }) => (
+            <div key={text} style={{
+              display: "flex", alignItems: "center", gap: "7px",
+              backgroundColor: "var(--sesa-surface)",
+              border: "1px solid var(--sesa-border)",
+              borderRadius: "var(--sesa-radius-full)",
+              padding: "6px 14px",
+              fontSize: "12.5px", fontWeight: 500,
+              color: "var(--sesa-text-secondary)",
+              boxShadow: "var(--sesa-shadow-xs)",
+            }}>
+              <Icon size={13} style={{ color: "var(--sesa-accent)" }} />
+              {text}
             </div>
           ))}
         </motion.div>
@@ -186,62 +153,49 @@ export function Hero() {
 
       {/* Dashboard preview */}
       <motion.div
-        initial={{ opacity: 0, y: 48, scale: 0.96 }}
+        initial={{ opacity: 0, y: 56, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
-        style={{
-          position: "relative",
-          zIndex: 1,
-          marginTop: "72px",
-          width: "100%",
-          maxWidth: "1100px",
-        }}
+        transition={{ duration: 0.75, delay: 0.45, ease: [0.2, 0.8, 0.2, 1] as [number, number, number, number] }}
+        style={{ position: "relative", zIndex: 1, marginTop: "80px", width: "100%", maxWidth: "1100px" }}
       >
-        <div
-          style={{
-            borderRadius: "var(--sesa-radius-2xl)",
-            border: "1px solid var(--sesa-border)",
-            background: "var(--sesa-surface)",
-            boxShadow: "var(--sesa-shadow-xl)",
-            overflow: "hidden",
-          }}
-        >
-          {/* Fake browser chrome */}
-          <div
-            style={{
-              height: "44px",
-              borderBottom: "1px solid var(--sesa-border)",
-              backgroundColor: "var(--sesa-surface-elevated)",
-              display: "flex",
-              alignItems: "center",
-              padding: "0 16px",
-              gap: "8px",
-            }}
-          >
+        {/* Glow behind the card */}
+        <div aria-hidden style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "70%", height: "60%",
+          background: "radial-gradient(ellipse, rgba(13,148,136,0.15) 0%, rgba(99,102,241,0.1) 50%, transparent 70%)",
+          filter: "blur(40px)", pointerEvents: "none", zIndex: 0,
+        }} />
+
+        <div style={{
+          position: "relative", zIndex: 1,
+          borderRadius: "var(--sesa-radius-2xl)",
+          border: "1px solid var(--sesa-border-strong)",
+          background: "var(--sesa-surface)",
+          boxShadow: "var(--sesa-shadow-xl), 0 0 0 1px rgba(255,255,255,0.03)",
+          overflow: "hidden",
+        }}>
+          {/* Browser chrome */}
+          <div style={{
+            height: "42px",
+            borderBottom: "1px solid var(--sesa-border)",
+            backgroundColor: "var(--sesa-surface-elevated)",
+            display: "flex", alignItems: "center", padding: "0 16px", gap: "8px",
+          }}>
             <div style={{ display: "flex", gap: "6px" }}>
-              {["#FF5F57", "#FFBD2E", "#28CA41"].map((c) => (
-                <div key={c} style={{ width: "12px", height: "12px", borderRadius: "50%", backgroundColor: c }} />
+              {["#FF5F57", "#FEBC2E", "#28C840"].map((c) => (
+                <div key={c} style={{ width: "11px", height: "11px", borderRadius: "50%", backgroundColor: c }} />
               ))}
             </div>
-            <div
-              style={{
-                flex: 1,
-                height: "26px",
-                backgroundColor: "var(--sesa-surface-hover)",
-                borderRadius: "var(--sesa-radius-sm)",
-                margin: "0 48px",
-                display: "flex",
-                alignItems: "center",
-                paddingLeft: "12px",
-              }}
-            >
-              <span style={{ fontSize: "12px", color: "var(--sesa-text-muted)" }}>
-                app.sesa.com.co/dashboard
-              </span>
+            <div style={{
+              flex: 1, height: "24px", backgroundColor: "var(--sesa-surface-hover)",
+              borderRadius: "var(--sesa-radius-sm)", margin: "0 40px",
+              display: "flex", alignItems: "center", paddingLeft: "10px",
+            }}>
+              <span style={{ fontSize: "11px", color: "var(--sesa-text-muted)" }}>app.sesa.com.co/dashboard</span>
             </div>
           </div>
 
-          {/* Dashboard mockup content */}
           <DashboardMockup />
         </div>
       </motion.div>
@@ -251,28 +205,28 @@ export function Hero() {
 
 function DashboardMockup() {
   const kpis = [
-    { label: "Radicado del mes", value: "$2.84M", trend: "+12.4%", color: "var(--sesa-accent)" },
-    { label: "Glosas recuperadas", value: "$847K", trend: "+8.1%", color: "var(--sesa-accent-2)" },
-    { label: "Facturas pendientes", value: "143", trend: "-3", color: "var(--sesa-warning)" },
-    { label: "Tasa de rechazo", value: "2.3%", trend: "-0.8%", color: "var(--sesa-success)" },
+    { label: "Radicado del mes", value: "$2.84M", trend: "+12.4%", up: true, color: "var(--sesa-accent)" },
+    { label: "Glosas recuperadas", value: "$847K", trend: "+8.1%", up: true, color: "var(--sesa-accent-2)" },
+    { label: "Días de cartera", value: "34 días", trend: "-6 días", up: true, color: "var(--sesa-success)" },
+    { label: "Tasa de rechazo", value: "2.3%", trend: "-0.8pp", up: true, color: "var(--sesa-warning)" },
+  ];
+
+  const rows = [
+    { id: "F-20240512", eps: "Sura EPS", monto: "$142,000", estado: "Radicada", estadoColor: "var(--sesa-success)" },
+    { id: "F-20240511", eps: "Nueva EPS", monto: "$89,500", estado: "En revisión", estadoColor: "var(--sesa-warning)" },
+    { id: "F-20240510", eps: "Sanitas", monto: "$204,000", estado: "Pagada", estadoColor: "var(--sesa-accent)" },
+    { id: "F-20240509", eps: "Compensar", monto: "$67,800", estado: "Glosada", estadoColor: "var(--sesa-danger)" },
   ];
 
   return (
-    <div
-      style={{
-        padding: "24px",
-        backgroundColor: "var(--sesa-bg)",
-        minHeight: "320px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "16px",
-      }}
-    >
-      {/* Header */}
+    <div style={{ padding: "20px 24px 24px", backgroundColor: "var(--sesa-bg)", display: "flex", flexDirection: "column", gap: "16px" }}>
+      {/* Topbar */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
-          <p style={{ fontSize: "13px", color: "var(--sesa-text-muted)", margin: 0 }}>Buenos días,</p>
-          <p style={{ fontSize: "16px", fontWeight: 600, color: "var(--sesa-text-primary)", margin: 0 }}>
+          <p style={{ fontSize: "11px", color: "var(--sesa-text-muted)", marginBottom: "2px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+            Dashboard · Mayo 2026
+          </p>
+          <p style={{ fontSize: "15px", fontWeight: 700, color: "var(--sesa-text-primary)" }}>
             Clínica San Rafael
           </p>
         </div>
@@ -280,43 +234,52 @@ function DashboardMockup() {
       </div>
 
       {/* KPI grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "12px",
-        }}
-        className="kpi-grid"
-      >
-        {kpis.map((kpi) => (
-          <div
-            key={kpi.label}
-            style={{
-              backgroundColor: "var(--sesa-surface)",
-              border: "1px solid var(--sesa-border)",
-              borderRadius: "var(--sesa-radius-lg)",
-              padding: "16px",
-              borderLeft: `3px solid ${kpi.color}`,
-            }}
-          >
-            <p style={{ fontSize: "11px", color: "var(--sesa-text-muted)", margin: "0 0 6px", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              {kpi.label}
-            </p>
-            <p style={{ fontSize: "20px", fontWeight: 700, color: "var(--sesa-text-primary)", margin: "0 0 4px", fontVariantNumeric: "tabular-nums" }}>
-              {kpi.value}
-            </p>
-            <p style={{ fontSize: "12px", color: kpi.color, margin: 0, fontWeight: 500 }}>
-              {kpi.trend}
-            </p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "10px" }} className="mock-kpi-grid">
+        {kpis.map((k) => (
+          <div key={k.label} style={{
+            backgroundColor: "var(--sesa-surface)",
+            border: "1px solid var(--sesa-border)",
+            borderRadius: "var(--sesa-radius-lg)",
+            padding: "12px 14px",
+            borderLeft: `2px solid ${k.color}`,
+          }}>
+            <p style={{ fontSize: "9px", color: "var(--sesa-text-muted)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "5px" }}>{k.label}</p>
+            <p style={{ fontSize: "17px", fontWeight: 700, color: "var(--sesa-text-primary)", fontVariantNumeric: "tabular-nums", marginBottom: "2px" }}>{k.value}</p>
+            <p style={{ fontSize: "11px", color: k.color, fontWeight: 600 }}>{k.trend}</p>
           </div>
         ))}
       </div>
 
-      <style>{`
-        @media (max-width: 640px) {
-          .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-      `}</style>
+      {/* Mini table */}
+      <div style={{
+        backgroundColor: "var(--sesa-surface)",
+        border: "1px solid var(--sesa-border)",
+        borderRadius: "var(--sesa-radius-lg)",
+        overflow: "hidden",
+      }}>
+        <div style={{ padding: "10px 14px", borderBottom: "1px solid var(--sesa-border)", display: "flex", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "12px", fontWeight: 600, color: "var(--sesa-text-primary)" }}>Facturas recientes</span>
+          <span style={{ fontSize: "11px", color: "var(--sesa-accent)", fontWeight: 500, cursor: "pointer" }}>Ver todas →</span>
+        </div>
+        {rows.map((r, i) => (
+          <div key={r.id} style={{
+            display: "grid", gridTemplateColumns: "1fr 1fr 1fr auto",
+            padding: "8px 14px", gap: "12px", alignItems: "center",
+            borderBottom: i < rows.length - 1 ? "1px solid var(--sesa-border)" : "none",
+          }}>
+            <span style={{ fontSize: "11px", color: "var(--sesa-text-muted)", fontFamily: "monospace" }}>{r.id}</span>
+            <span style={{ fontSize: "11px", color: "var(--sesa-text-secondary)" }}>{r.eps}</span>
+            <span style={{ fontSize: "11px", color: "var(--sesa-text-primary)", fontWeight: 600, fontVariantNumeric: "tabular-nums" }}>{r.monto}</span>
+            <span style={{
+              fontSize: "10px", fontWeight: 600, padding: "2px 8px",
+              borderRadius: "var(--sesa-radius-full)",
+              backgroundColor: `${r.estadoColor}18`,
+              color: r.estadoColor,
+            }}>{r.estado}</span>
+          </div>
+        ))}
+      </div>
+      <style>{`@media(max-width:640px){.mock-kpi-grid{grid-template-columns:repeat(2,1fr)!important}}`}</style>
     </div>
   );
 }
