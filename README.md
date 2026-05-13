@@ -43,4 +43,4 @@ El proyecto está configurado para **Vercel**. Conecta el repositorio en [vercel
 
 ## Autor
 
-Ing. J Sebastian Vargas S — Sphaira Tech SAS
+Ing. J Sebastian Vargas S — SESA

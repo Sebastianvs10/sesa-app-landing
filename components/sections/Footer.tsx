@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ExternalLink, ArrowRight, Link2 } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 
 const FOOTER_LINKS = {
   Producto: [
@@ -164,7 +164,7 @@ export function Footer() {
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
             <p style={{ fontSize: "12px", color: "var(--sesa-text-muted)", margin: 0 }}>
-              © 2026 Sphaira Tech SAS — Bogotá, Colombia
+              © 2026 SESA — Bogotá, Colombia
             </p>
             <div style={{ display: "flex", gap: "4px" }}>
               {[
@@ -211,16 +211,9 @@ export function Footer() {
               ))}
             </div>
 
-            <a href="https://sphairatech.com" target="_blank" rel="noopener noreferrer" style={{
-              display: "inline-flex", alignItems: "center", gap: "4px",
-              fontSize: "12px", color: "var(--sesa-text-muted)", textDecoration: "none",
-              transition: "color var(--sesa-motion-fast)",
-            }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--sesa-accent)")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--sesa-text-muted)")}
-            >
-              Sphaira Tech <ExternalLink size={11} />
-            </a>
+            <span style={{ fontSize: "12px", color: "var(--sesa-text-muted)" }}>
+              SESA · Bogotá, Colombia
+            </span>
           </div>
         </div>
       </div>

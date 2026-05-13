@@ -13,7 +13,7 @@ export default function SobreSesaPage() {
       badge="Empresa"
       badgeColor="var(--sesa-accent)"
       title="Construimos el futuro del sector salud colombiano"
-      subtitle="Somos Sphaira Tech, una empresa de tecnología especializada en soluciones SaaS para el ecosistema de salud de Colombia."
+      subtitle="Somos SESA, una empresa de tecnología especializada en soluciones SaaS para el ecosistema de salud de Colombia."
       maxWidth="1100px"
     >
       <SobreSesaContent />

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "EPS",
     "SaaS salud Colombia",
   ],
-  authors: [{ name: "Sphaira Tech" }],
+  authors: [{ name: "SESA" }],
   openGraph: {
     title: "SESA — Sistema de Gestión en Salud",
     description: "Automatiza la facturación, glosas y cartera del sector salud colombiano.",

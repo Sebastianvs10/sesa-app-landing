@@ -18,7 +18,7 @@ export default function HabeasDataPage() {
       maxWidth="820px"
     >
       <LegalAlert type="warning">
-        El <strong>Habeas Data</strong> es un derecho fundamental consagrado en el artículo 15 de la Constitución Política de Colombia y desarrollado por la <strong>Ley Estatutaria 1581 de 2012</strong>. Le permite a usted como titular de datos personales conocer, actualizar, rectificar y suprimir la información que Sphaira Tech SAS trate sobre usted.
+        El <strong>Habeas Data</strong> es un derecho fundamental consagrado en el artículo 15 de la Constitución Política de Colombia y desarrollado por la <strong>Ley Estatutaria 1581 de 2012</strong>. Le permite a usted como titular de datos personales conocer, actualizar, rectificar y suprimir la información que SESA trate sobre usted.
       </LegalAlert>
 
       <br />
@@ -27,8 +27,8 @@ export default function HabeasDataPage() {
         <LegalTable
           headers={["Campo", "Información"]}
           rows={[
-            ["Razón social", "Sphaira Tech SAS"],
-            ["NIT", "901.234.567-8"],
+            ["Razón social", "SESA SAS"],
+            ["NIT", "Por definir"],
             ["Domicilio", "Calle 93 # 13-24, Piso 8, Bogotá, D.C., Colombia"],
             ["Correo habeas data", "habeasdata@sesa.com.co"],
             ["Teléfono", "+57 (1) 234 5678"],
@@ -97,7 +97,7 @@ export default function HabeasDataPage() {
       </LegalSection>
 
       <LegalSection number="7" title="Transferencias internacionales de datos">
-        <LegalP>Los datos pueden ser procesados en servidores ubicados fuera de Colombia (AWS us-east-1, ubicado en Estados Unidos) bajo las garantías establecidas en el artículo 26 de la Ley 1581 de 2012 y el Decreto 1377 de 2013. Sphaira Tech SAS garantiza que:</LegalP>
+        <LegalP>Los datos pueden ser procesados en servidores ubicados fuera de Colombia (AWS us-east-1, ubicado en Estados Unidos) bajo las garantías establecidas en el artículo 26 de la Ley 1581 de 2012 y el Decreto 1377 de 2013. SESA garantiza que:</LegalP>
         <LegalList items={[
           "Amazon Web Services cumple con normas de protección de datos equivalentes (certificaciones SOC 2, ISO 27001).",
           "Se ha celebrado el Data Processing Agreement (DPA) correspondiente con AWS.",
@@ -106,7 +106,7 @@ export default function HabeasDataPage() {
       </LegalSection>
 
       <LegalSection number="8" title="Presentación de queja ante la SIC">
-        <LegalP>Si Sphaira Tech SAS no atiende satisfactoriamente su solicitud dentro de los plazos legales, puede presentar una queja ante la <strong>Superintendencia de Industria y Comercio (SIC)</strong>, entidad que actúa como autoridad de protección de datos en Colombia:</LegalP>
+        <LegalP>Si SESA no atiende satisfactoriamente su solicitud dentro de los plazos legales, puede presentar una queja ante la <strong>Superintendencia de Industria y Comercio (SIC)</strong>, entidad que actúa como autoridad de protección de datos en Colombia:</LegalP>
         <LegalList items={[
           "Sitio web: www.sic.gov.co",
           "Correo: contactenos@sic.gov.co",

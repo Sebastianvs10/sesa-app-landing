@@ -18,7 +18,7 @@ export default function PrivacidadPage() {
       maxWidth="820px"
     >
       <LegalAlert>
-        Sphaira Tech SAS, identificada con NIT 901.234.567-8, actúa como <strong>Responsable del Tratamiento</strong> de los datos personales recopilados a través de la plataforma SESA, conforme a lo establecido en la <strong>Ley 1581 de 2012</strong> (Ley de Protección de Datos Personales de Colombia) y el Decreto 1377 de 2013.
+        <strong>SESA SAS</strong> actúa como <strong>Responsable del Tratamiento</strong> de los datos personales recopilados a través de la plataforma SESA, conforme a lo establecido en la <strong>Ley 1581 de 2012</strong> (Ley de Protección de Datos Personales de Colombia) y el Decreto 1377 de 2013.
       </LegalAlert>
 
       <br />
@@ -111,11 +111,11 @@ export default function PrivacidadPage() {
       </LegalSection>
 
       <LegalSection number="8" title="Cambios en esta política">
-        <LegalP>Sphaira Tech SAS se reserva el derecho de modificar esta política. Los cambios materiales serán comunicados con al menos 30 días de antelación por correo electrónico al responsable de cuenta del Cliente. La versión vigente siempre estará disponible en sesa.com.co/legal/privacidad.</LegalP>
+        <LegalP>SESA se reserva el derecho de modificar esta política. Los cambios materiales serán comunicados con al menos 30 días de antelación por correo electrónico al responsable de cuenta del Cliente. La versión vigente siempre estará disponible en sesa.com.co/legal/privacidad.</LegalP>
       </LegalSection>
 
       <LegalSection number="9" title="Contacto y reclamaciones">
-        <LegalP>Responsable del tratamiento: Sphaira Tech SAS, NIT 901.234.567-8. Para consultas o solicitudes sobre el tratamiento de sus datos:</LegalP>
+        <LegalP>Responsable del tratamiento: SESA SAS. Para consultas o solicitudes sobre el tratamiento de sus datos:</LegalP>
         <LegalList items={[
           "Correo electrónico: privacidad@sesa.com.co",
           "Dirección: Calle 93 # 13-24, Piso 8, Bogotá, D.C., Colombia",

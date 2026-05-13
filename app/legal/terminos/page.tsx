@@ -4,7 +4,7 @@ import { LegalSection, LegalP, LegalList, LegalAlert, LegalTable } from "@/compo
 
 export const metadata: Metadata = {
   title: "Términos de Servicio — SESA",
-  description: "Términos y condiciones de uso de la plataforma SESA de Sphaira Tech SAS.",
+  description: "Términos y condiciones de uso de la plataforma SESA.",
 };
 
 export default function TerminosPage() {
@@ -18,7 +18,7 @@ export default function TerminosPage() {
       maxWidth="820px"
     >
       <LegalAlert>
-        Este documento es un contrato legal vinculante entre <strong>Sphaira Tech SAS</strong> (NIT 901.234.567-8, en adelante "SESA") y la institución de salud o persona natural que accede a la plataforma ("Cliente"). Al activar su cuenta, el Cliente acepta estos términos en su totalidad.
+        Este documento es un contrato legal vinculante entre <strong>SESA SAS</strong> (en adelante "SESA") y la institución de salud o persona natural que accede a la plataforma ("Cliente"). Al activar su cuenta, el Cliente acepta estos términos en su totalidad.
       </LegalAlert>
 
       <br />
@@ -34,7 +34,7 @@ export default function TerminosPage() {
       </LegalSection>
 
       <LegalSection number="2" title="Objeto del contrato">
-        <LegalP>Sphaira Tech SAS se obliga a prestar al Cliente acceso a la plataforma SESA para la gestión del ciclo de ingresos en salud, conforme al plan de suscripción contratado. Los servicios incluyen:</LegalP>
+        <LegalP>SESA se obliga a prestar al Cliente acceso a la plataforma para la gestión del ciclo de ingresos en salud, conforme al plan de suscripción contratado. Los servicios incluyen:</LegalP>
         <LegalList items={[
           "Generación, validación y radicación de facturas electrónicas de venta (FEV) ante la DIAN.",
           "Generación automática de RIPS según normativa vigente del Ministerio de Salud.",
@@ -82,7 +82,7 @@ export default function TerminosPage() {
       </LegalSection>
 
       <LegalSection number="6" title="Propiedad intelectual">
-        <LegalP>Todo el software, diseño, algoritmos, modelos de datos y documentación de SESA son propiedad exclusiva de Sphaira Tech SAS y están protegidos por la Ley 23 de 1982 y normativa internacional de derechos de autor.</LegalP>
+        <LegalP>Todo el software, diseño, algoritmos, modelos de datos y documentación de SESA son propiedad exclusiva de SESA SAS y están protegidos por la Ley 23 de 1982 y normativa internacional de derechos de autor.</LegalP>
         <LegalP>Los Datos del Cliente son propiedad exclusiva del Cliente. SESA no revendará, compartirá ni usará estos datos para fines distintos a la prestación del servicio contratado.</LegalP>
       </LegalSection>
 
@@ -91,7 +91,7 @@ export default function TerminosPage() {
       </LegalSection>
 
       <LegalSection number="8" title="Limitación de responsabilidad">
-        <LegalP>La responsabilidad máxima de Sphaira Tech SAS frente al Cliente no excederá el valor de 3 mensualidades del plan contratado en el momento del evento. SESA no será responsable por:</LegalP>
+        <LegalP>La responsabilidad máxima de SESA frente al Cliente no excederá el valor de 3 mensualidades del plan contratado en el momento del evento. SESA no será responsable por:</LegalP>
         <LegalList items={[
           "Pérdidas de negocio, lucro cesante o daños indirectos.",
           "Errores en la información ingresada por el Cliente o sus usuarios.",

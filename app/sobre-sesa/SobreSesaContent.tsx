@@ -13,7 +13,7 @@ const VALUES = [
 ];
 
 const MILESTONES = [
-  { year: "2020", title: "El origen", desc: "Sphaira Tech nace en Bogotá con una misión clara: modernizar la facturación hospitalaria en Colombia, que seguía siendo 90% manual." },
+  { year: "2020", title: "El origen", desc: "SESA nace en Bogotá con una misión clara: modernizar la facturación hospitalaria en Colombia, que seguía siendo 90% manual." },
   { year: "2021", title: "Primera versión", desc: "SESA v1 entra en producción con 3 instituciones piloto. El módulo de facturación electrónica reduce el tiempo de radicación de 3 días a 6 horas." },
   { year: "2022", title: "Gestión de glosas", desc: "Lanzamos el módulo de gestión de glosas. La tasa de recuperación de las instituciones que lo adoptan supera el 80% en el primer trimestre." },
   { year: "2023", title: "Expansión nacional", desc: "SESA llega a 50 instituciones en 12 departamentos. Lanzamos el módulo de cartera inteligente y los tableros ejecutivos en tiempo real." },
@@ -22,7 +22,7 @@ const MILESTONES = [
 ];
 
 const TEAM = [
-  { name: "Ing. J. Sebastian Vargas S.", role: "CEO & CTO", desc: "Ingeniero de sistemas con 12 años en desarrollo de software para el sector salud. Fundador de Sphaira Tech.", initials: "SV", color: "var(--sesa-accent)" },
+  { name: "Ing. J. Sebastian Vargas S.", role: "CEO & CTO", desc: "Ingeniero de sistemas con 12 años en desarrollo de software para el sector salud. Fundador y líder técnico de SESA.", initials: "SV", color: "var(--sesa-accent)" },
   { name: "Dra. Camila Torres", role: "CPO — Chief Product Officer", desc: "Especialista en normativa de salud colombiana (RIPS, DIAN, Ley 100). Líder de diseño de producto centrado en el usuario operativo.", initials: "CT", color: "var(--sesa-accent-2)" },
   { name: "Ing. Marcela Rodríguez", role: "CTO Infra & Seguridad", desc: "Arquitecta cloud con experiencia en sistemas críticos de salud. Responsable del SLA del 99.9% y la certificación ISO 27001.", initials: "MR", color: "var(--sesa-success)" },
   { name: "Lic. David Escobar", role: "VP de Ventas & Clientes", desc: "Experto en gestión de cuentas enterprise en el sector salud colombiano. Construyó la red de 120+ instituciones activas.", initials: "DE", color: "var(--sesa-warning)" },
